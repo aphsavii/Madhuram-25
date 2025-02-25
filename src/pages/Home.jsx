@@ -121,7 +121,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">COMING SOON</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">COMING SOON . . .</h2>
           <div className="flex justify-center flex-wrap gap-4">
             <motion.div 
               className="w-24 sm:w-32 p-3 bg-black bg-opacity-60 backdrop-blur-md rounded-lg border border-green-500/30 shadow-md"
