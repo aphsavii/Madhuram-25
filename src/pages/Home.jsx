@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react"
 
 const Home = () => {
   const [days, setDays] = useState(0);
@@ -52,6 +52,44 @@ const Home = () => {
     return () => clearInterval(slideInterval);
   }, [backgroundImages.length]);
 
+  // Generate a bunch of stars
+  const generateStars = (count) => {
+    return Array.from({ length: count }, (_, i) => ({
+      id: i,
+      size: Math.random() * 3 + 1, // Size between 1-4px
+      top: Math.random() * 100, // Random vertical position
+      left: Math.random() * 100, // Random horizontal position
+      delay: Math.random() * 5, // Random animation delay
+      duration: Math.random() * 3 + 2, // Animation duration between 2-5s
+      opacity: Math.random() * 0.7 + 0.3, // Opacity between 0.3-1
+    }));
+  };
+
+  // Generate comets with varied paths
+  const generateComets = (count) => {
+    return Array.from({ length: count }, (_, i) => {
+      const startTop = Math.random() * 70; // Start from top 0-70%
+      const endTop = startTop + (Math.random() * 30 - 15); // End at ±15% from start
+      const speed = Math.random() * 15 + 10; // Speed between 10-25s
+      const size = Math.random() * 2 + 2; // Size between 2-4px
+      const delay = i * 3 + Math.random() * 4; // Staggered delays
+      
+      return {
+        id: i,
+        startTop,
+        endTop,
+        size,
+        speed,
+        delay,
+        tailLength: size * (Math.random() * 10 + 10), // Tail length proportional to size
+        brightness: Math.random() * 0.4 + 0.6, // Brightness between 0.6-1
+      };
+    });
+  };
+
+  const stars = generateStars(100); // Generate 100 stars
+  const comets = generateComets(4); // Generate 4 comets with varied paths
+
   return (
     <div className="relative h-screen overflow-hidden text-white">
       {/* Background Slideshow */}
@@ -68,6 +106,83 @@ const Home = () => {
           >
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
           </div>
+        ))}
+      </div>
+
+      {/* Star Field */}
+      <div className="absolute inset-0 z-1 overflow-hidden">
+        {/* Static Stars */}
+        {stars.map((star) => (
+          <motion.div
+            key={`star-${star.id}`}
+            className="absolute rounded-full bg-white"
+            style={{
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              top: `${star.top}%`,
+              left: `${star.left}%`,
+              opacity: star.opacity,
+            }}
+            animate={{
+              opacity: [star.opacity, star.opacity * 1.5, star.opacity],
+              scale: [1, star.size > 2 ? 1.3 : 1.1, 1],
+            }}
+            transition={{
+              duration: star.duration,
+              ease: "easeInOut",
+              repeat: Infinity,
+              delay: star.delay,
+            }}
+          />
+        ))}
+
+        {/* Comets with varied paths */}
+        {comets.map((comet) => (
+          <motion.div
+            key={`comet-${comet.id}`}
+            className="absolute"
+            initial={{ 
+              top: `${comet.startTop}%`, 
+              left: "-5%",
+              opacity: 0,
+              rotate: Math.atan2(comet.endTop - comet.startTop, 100) * (180 / Math.PI),
+            }}
+            animate={{ 
+              left: "110%",
+              top: `${comet.endTop}%`,
+              opacity: [0, 1, 1, 0],
+            }}
+            transition={{
+              duration: comet.speed,
+              ease: "easeInOut",
+              repeat: Infinity,
+              delay: comet.delay,
+              repeatDelay: 5, // 15-25s before repeating
+            }}
+          >
+            {/* Comet head */}
+            <div className="relative">
+              <div
+                className="absolute rounded-full bg-white"
+                style={{
+                  width: `${comet.size * 2}px`,
+                  height: `${comet.size * 2}px`,
+                  boxShadow: `0 0 ${comet.size * 4}px ${comet.size}px rgba(255, 255, 255, ${comet.brightness})`,
+                }}
+              />
+              {/* Comet tail */}
+              <div 
+                className="absolute bg-white bg-opacity-40"
+                style={{
+                  width: `${comet.tailLength}px`,
+                  height: `${comet.size}px`,
+                  transform: "translateX(-100%)",
+                  borderRadius: `${comet.size}px 0 0 ${comet.size}px`,
+                  background: `linear-gradient(to left, rgba(255,255,255,${comet.brightness}), rgba(255,255,255,0))`,
+                }}
+              />
+            </div>
+          </motion.div>
         ))}
       </div>
 
