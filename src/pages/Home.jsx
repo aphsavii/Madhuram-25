@@ -72,7 +72,7 @@ const Home = () => {
       const endTop = startTop + (Math.random() * 30 - 15); // End at ±15% from start
       const speed = Math.random() * 15 + 10; // Speed between 10-25s
       const size = Math.random() * 2 + 2; // Size between 2-4px
-      const delay = i * 3 + Math.random() * 4; // Staggered delays
+      const delay = i * 3 + Math.random() * 2; // Staggered delays
       
       return {
         id: i,
@@ -88,7 +88,7 @@ const Home = () => {
   };
 
   const stars = generateStars(100); // Generate 100 stars
-  const comets = generateComets(4); // Generate 4 comets with varied paths
+  const comets = generateComets(10); // Generate 4 comets with varied paths
 
   return (
     <div className="relative h-screen overflow-hidden text-white">
@@ -157,7 +157,7 @@ const Home = () => {
               ease: "easeInOut",
               repeat: Infinity,
               delay: comet.delay,
-              repeatDelay: 5, // 15-25s before repeating
+              repeatDelay: 7, // 15-25s before repeating
             }}
           >
             {/* Comet head */}
