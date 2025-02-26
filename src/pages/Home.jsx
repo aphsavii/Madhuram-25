@@ -88,7 +88,7 @@ const Home = () => {
   };
 
   const stars = generateStars(100); // Generate 100 stars
-  const comets = generateComets(10); // Generate 4 comets with varied paths
+  const comets = generateComets(7); // Generate 4 comets with varied paths
 
   return (
     <div className="relative h-screen overflow-hidden text-white">
