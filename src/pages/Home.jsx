@@ -9,7 +9,7 @@ const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Example fest date - set this to your actual fest date
-  const festDate = new Date("2025-03-04T09:00:00");
+  const festDate = new Date("2025-04-04T09:00:00");
 
   // Sample background images
   const backgroundImages = ["assets/banner-2.png"];
