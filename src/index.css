@@ -65,6 +65,10 @@
   }
 }
 
-*{
-  font-family: "Kranky", serif;
+.font-poppins{
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-monterrat{
+  font-family: 'Montserrat', sans-serif;
 }
