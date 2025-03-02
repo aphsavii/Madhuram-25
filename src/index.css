@@ -80,3 +80,10 @@
 .font-lobster{
   font-family: 'Lobster', cursive;
 }
+
+@font-face {
+  font-family: 'impact';
+  src: url('/fonts/impact.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
