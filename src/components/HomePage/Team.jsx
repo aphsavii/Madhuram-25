@@ -1,6 +1,8 @@
 import React from "react";
 import BgImage from "/assets/image244.png";
 import Director from "/assets/director.png"
+import MMSinha from "/assets/mmsinha.png";
+import Indra from "/assets/indraj.png";
 
 const Team = () => {
   const members = [
@@ -13,21 +15,24 @@ const Team = () => {
     {
       name: "Professor M. M. Sinha",
       role: "Dean (Student Welfare)",
-      image: Director,
+      image: MMSinha,
       description: "Beyond academics, cultural activities shape our personalities and bring us together as a community. I urge you all to immerse yourselves in the joy of art, music, and expression. Enjoy every moment!",
     },
     {
       name: "Dr. Indraj Singh",
       role: "Chairman, Madhuram'25",
-      image: Director,
+      image: Indra,
       description: "This event is a reflection of our vibrant student community. Your enthusiasm and dedication make it special. Let's create an atmosphere of joy, togetherness, and inspiration. Wishing you all a fantastic fest!",
     },
   ];
   return (
     <section className="md:py-6 py-0 text-center">
-      <div className="flex justify-center space-x-4 mt-4 md:gap-9 gap-3 flex-col md:flex-row">
+      <div className="flex justify-center space-x-4 mt-4 md:gap-9 gap-3 flex-col md:flex-row ">
         {members.map((member, index) => (
-          <div key={index} className="relative">
+          <div 
+          key={index} 
+          className="relative transition-transform duration-300 hover:scale-105 drop-shadow hover:shadow-2xl rounded-lg"
+        >
             <img
               src={BgImage}
               className="md:w-full md:h-full w-2/3 h-3/5 mx-auto object-cover rounded-lg"
