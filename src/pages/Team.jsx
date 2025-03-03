@@ -102,29 +102,31 @@ function getTint(hex, percentage) {
 
 const Card = ({ title, description, image }) => {
     return (
-        <div className="flex justify-center items-center h-auto min-h-[200px] p-4">
-            <div className="group w-full sm:w-4 md:w-60 lg:w-80 border-2 border-white bg-gradient-to-b from-purple-600 to-purple-800 text-white rounded-2xl shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl duration-300 ease-in-out">
+        <div className="flex justify-center items-center h-auto min-h-[150px] p-1 sm:p-3">
+  <div className="group w-36 sm:w-56 md:w-72 lg:w-80 border-2 border-white bg-gradient-to-b from-purple-600 to-purple-800 text-white rounded-2xl shadow-lg text-center transition-transform transform hover:scale-105 hover:shadow-2xl duration-300 ease-in-out">
 
-                {/* Image Section */}
-                <div className="relative w-full overflow-hidden rounded-t-2xl">
-                    <img
-                        src={image}
-                        alt={title}
-                        className="w-full h-40 sm:h-30 md:h-40 lg:h-64 object-cover rounded-t-2xl shadow-md transition-all duration-300 ease-in-out group-hover:brightness-110"
-                    />
-                </div>
+   
+    <div className="relative w-full h-28 sm:h-36 lg:h-56 overflow-hidden rounded-t-2xl">
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-full object-cover rounded-t-2xl shadow-md transition-all duration-300 ease-in-out group-hover:brightness-110"
+      />
+    </div>
 
-                {/* Text Section */}
-                <div className="mt-4 flex flex-col justify-center p-4">
-                    <p className="italic font-semibold text-gray-200 group-hover:text-white transition-colors duration-300">
-                        {description}
-                    </p>
-                    <h2 className="text-xl font-bold mt-1 group-hover:text-yellow-300 transition-colors duration-300">
-                        {title}
-                    </h2>
-                </div>
-            </div>
-        </div>
+  
+    <div className="mt-0.5 sm:mt-2 md:mt-3 flex flex-col justify-center p-1 sm:p-2 md:p-3">
+      <p className="italic text-[10px] sm:text-sm md:text-base font-semibold text-gray-200 group-hover:text-white transition-colors duration-300">
+        {description}
+      </p>
+      <h2 className="text-xs sm:text-lg font-bold mt-0.5 sm:mt-2 md:mt-3 group-hover:text-yellow-300 transition-colors duration-300">
+        {title}
+      </h2>
+    </div>
+  </div>
+</div>
+
+
 
     );
 };
@@ -202,8 +204,8 @@ const Faculty = ({ width }) => {
     return (
         <>
 
-            <div class="flex justify-center   ">
-                <div class=" p-4 text-white">
+            <div className="flex justify-center   ">
+                <div className=" p-4 text-white">
                     <img src="/assets/faculty.svg" alt="" />
                 </div>
             </div>
@@ -212,7 +214,7 @@ const Faculty = ({ width }) => {
                 <Card
                     title="Dr. Mani Kant Paswan"
                     description="Patron-in-Chief"
-                    image="/assets/mkpaswan.png"
+                    image="/assets/director-team.jpg"
                 />
                 <Card
                     title="Prof. M. M. Sinha"
