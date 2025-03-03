@@ -20,21 +20,21 @@ const Sponsors = () => {
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % sponsors.length);
-  };
+  // Auto slide every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % sponsors.length);
+    }, 3000);
 
-  const prevSlide = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + sponsors.length) % sponsors.length
-    );
-  };
+    return () => clearInterval(interval);
+  }, [sponsors.length]);
 
   const getCircularSponsors = () => {
-    const numSponsors = isMobile ? 1 : 3; // 1 sponsor on mobile, 3 on larger screens
+    const numSponsors = isMobile ? 1 : 3;
     return Array.from({ length: numSponsors }, (_, i) =>
       sponsors[(currentIndex + i) % sponsors.length]
     );
@@ -47,7 +47,7 @@ const Sponsors = () => {
           <img
             src={leftFlower}
             alt="left flower"
-            className="absolute left-0 md:w-auto w-1/2"
+            className="absolute left-0 md:w-auto w-2/5"
           />
 
           <div className="px-12 py-4 rounded-lg relative z-10">
@@ -59,25 +59,30 @@ const Sponsors = () => {
           <img
             src={rightFlower}
             alt="right flower"
-            className="absolute right-0 md:w-auto w-1/2"
+            className="absolute right-0 md:w-auto w-2/5"
           />
         </div>
 
-        <div className="md:mt-60 mt-32 flex items-center justify-center relative">
-          {/* Left Navigation Button */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:ml-7 ml-1"
-          >
-            <FaChevronLeft size={30} />
-          </button>
+        {/* Carousel */}
+        <div className="md:mt-60 mt-16 flex items-center justify-center relative">
+          {!isMobile && (
+            <button
+              onClick={() =>
+                setCurrentIndex(
+                  (prevIndex) => (prevIndex - 1 + sponsors.length) % sponsors.length
+                )
+              }
+              className="absolute left-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:ml-7 ml-1"
+            >
+              <FaChevronLeft size={30} />
+            </button>
+          )}
 
-          {/* Sponsor Carousel (Circular Display of 3 Images) */}
           <div className="flex gap-16 overflow-hidden">
             {getCircularSponsors().map((sponsor, index) => (
               <div
                 key={index}
-                className="w-80 h-80 bg-gray-300 rounded-full flex items-center justify-center shadow-lg"
+                className="md:w-80 md:h-80 w-60 h-60 bg-gray-300 rounded-full flex items-center justify-center shadow-lg"
               >
                 <img
                   src={sponsor.logo}
@@ -88,22 +93,40 @@ const Sponsors = () => {
             ))}
           </div>
 
-          {/* Right Navigation Button */}
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:mr-7 mr-1"
-          >
-            <FaChevronRight size={30} />
-          </button>
+          {!isMobile && (
+            <button
+              onClick={() =>
+                setCurrentIndex((prevIndex) => (prevIndex + 1) % sponsors.length)
+              }
+              className="absolute right-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:mr-7 mr-1"
+            >
+              <FaChevronRight size={30} />
+            </button>
+          )}
         </div>
 
+        {/* Pagination Dots (Visible on Mobile) */}
+        {isMobile && (
+          <div className="flex justify-center mt-4">
+            {sponsors.map((_, index) => (
+              <div
+                key={index}
+                className={`w-3 h-3 mx-1 rounded-full ${
+                  index === currentIndex ? "bg-white" : "bg-gray-400"
+                }`}
+              ></div>
+            ))}
+          </div>
+        )}
+
         {/* Sponsor Description */}
-        <p className="mt-24 text-white md:text-7xl text-3xl font-poppins">
+        <p className="md:mt-24 mt-12 text-white md:text-7xl text-3xl font-poppins">
           Few lines for sponsors
         </p>
       </section>
 
-      <section className="border-white border-[5px] bg-[#1F3765] flex flex-row justify-between  md:px-10 px-2 md:py-12 py-6 mt-24 mb-4 items-start">
+       {/* Footer Section */}
+       <section className="border-white md:border-[5px] border-[3px] bg-[#1F3765] flex flex-row justify-between md:px-10 px-2 md:py-12 py-6 md:mt-24 mt-12 md:mb-4 mb-2 items-start">
         {/* Left Image */}
         <div className="flex justify-center">
           <img

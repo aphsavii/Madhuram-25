@@ -4,15 +4,18 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
   return (
     <div className="w-full" style={{ backgroundColor: bgLightColor }}>
       {/* Top Flower Border */}
-      <div
-        className="w-full h-6 mb-6"
-        style={{
-          backgroundImage: `url(${flowerImage})`,
-          backgroundRepeat: "repeat-x",
-          backgroundSize: "auto 100%",
-          backgroundPosition: "top",
-        }}
-      ></div>
+      
+      {flowerImage && (
+        <div
+          className="w-full h-6 mb-6"
+          style={{
+            backgroundImage: `url(${flowerImage})`,
+            backgroundSize: "auto 100%",
+            backgroundPosition: "top",
+          }}
+        ></div>
+      )}
+
 
       {/* Main Footer Content */}
       <div
@@ -83,15 +86,16 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
       </div>
 
       {/* Bottom Flower Border */}
-      <div
-        className="w-full h-6 mt-6"
-        style={{
-          backgroundImage: `url(${flowerImage})`,
-          backgroundRepeat: "repeat-x",
-          backgroundSize: "auto 100%",
-          backgroundPosition: "bottom",
-        }}
-      ></div>
+      {flowerImage && (
+        <div
+          className="w-full h-6 mt-6"
+          style={{
+            backgroundImage: `url(${flowerImage})`,
+            backgroundSize: "auto 100%",
+            backgroundPosition: "top",
+          }}
+        ></div>
+      )}
     </div>
   );
 };
