@@ -10,7 +10,6 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
           className="w-full h-6 mb-6"
           style={{
             backgroundImage: `url(${flowerImage})`,
-            backgroundSize: "auto 100%",
             backgroundPosition: "top",
           }}
         ></div>
@@ -91,7 +90,6 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
           className="w-full h-6 mt-6"
           style={{
             backgroundImage: `url(${flowerImage})`,
-            backgroundSize: "auto 100%",
             backgroundPosition: "top",
           }}
         ></div>

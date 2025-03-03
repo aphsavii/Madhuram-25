@@ -35,8 +35,9 @@ const Sponsors = () => {
 
   const getCircularSponsors = () => {
     const numSponsors = isMobile ? 1 : 3;
-    return Array.from({ length: numSponsors }, (_, i) =>
-      sponsors[(currentIndex + i) % sponsors.length]
+    return Array.from(
+      { length: numSponsors },
+      (_, i) => sponsors[(currentIndex + i) % sponsors.length]
     );
   };
 
@@ -65,18 +66,17 @@ const Sponsors = () => {
 
         {/* Carousel */}
         <div className="md:mt-60 mt-16 flex items-center justify-center relative">
-          {!isMobile && (
-            <button
-              onClick={() =>
-                setCurrentIndex(
-                  (prevIndex) => (prevIndex - 1 + sponsors.length) % sponsors.length
-                )
-              }
-              className="absolute left-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:ml-7 ml-1"
-            >
-              <FaChevronLeft size={30} />
-            </button>
-          )}
+          <button
+            onClick={() =>
+              setCurrentIndex(
+                (prevIndex) =>
+                  (prevIndex - 1 + sponsors.length) % sponsors.length
+              )
+            }
+            className="absolute left-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:ml-7 ml-1"
+          >
+            <FaChevronLeft size={30} />
+          </button>
 
           <div className="flex gap-16 overflow-hidden">
             {getCircularSponsors().map((sponsor, index) => (
@@ -93,16 +93,14 @@ const Sponsors = () => {
             ))}
           </div>
 
-          {!isMobile && (
-            <button
-              onClick={() =>
-                setCurrentIndex((prevIndex) => (prevIndex + 1) % sponsors.length)
-              }
-              className="absolute right-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:mr-7 mr-1"
-            >
-              <FaChevronRight size={30} />
-            </button>
-          )}
+          <button
+            onClick={() =>
+              setCurrentIndex((prevIndex) => (prevIndex + 1) % sponsors.length)
+            }
+            className="absolute right-0 md:p-2 p-1 rounded-full z-10 border-4 cursor-pointer md:mr-7 mr-1"
+          >
+            <FaChevronRight size={30} />
+          </button>
         </div>
 
         {/* Pagination Dots (Visible on Mobile) */}
@@ -125,8 +123,8 @@ const Sponsors = () => {
         </p>
       </section>
 
-       {/* Footer Section */}
-       <section className="border-white md:border-[5px] border-[3px] bg-[#1F3765] flex flex-row justify-between md:px-10 px-2 md:py-12 py-6 md:mt-24 mt-12 md:mb-4 mb-2 items-start">
+      {/* Footer Section */}
+      <section className="border-white md:border-[5px] border-[3px] bg-[#1F3765] flex flex-row justify-between md:px-10 px-2 md:py-12 py-6 md:mt-24 mt-12 md:mb-4 mb-2 items-start">
         {/* Left Image */}
         <div className="flex justify-center">
           <img

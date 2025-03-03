@@ -30,7 +30,7 @@ const Team = () => {
           <div key={index} className="relative">
             <img
               src={BgImage}
-              className="md:w-full md:h-full w-3/5 h-3/5 mx-auto object-cover rounded-lg"
+              className="md:w-full md:h-full w-2/3 h-3/5 mx-auto object-cover rounded-lg"
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 mx-auto md:w-4/6 w-3/5">
