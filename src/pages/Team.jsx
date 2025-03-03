@@ -45,7 +45,7 @@ const Viewdes = ({ title, description, image, color }) => {
 
                     <div style={{ width: 300, height: 300.73, position: 'relative' }}>
                         <div style={{ width: 300, height: 300, left: 0, top: 0, position: 'absolute', borderRadius: 20, border: `5px ${color} solid`, backgroundColor: getTint(color, 75) }}>
-                            <img className="scard" src={image} alt={title} style={{ width: 200, height: 200, borderRadius: 100, transform: 'translate(40px,17px)', border: '4px solid #bab3b3' }} />
+                            <img className="scard" src={image} alt={title} style={{ width: 200, height: 200, borderRadius: 100, transform: 'translate(40px,17px)', padding : '0', border: '4px solid #bab3b3' }} />
 
                         </div>
                         <div style={{ width: 300, height: 121.71, left: 0, top: 179.02, position: 'absolute', display: 'flex', justifyContent: 'center' }}>
@@ -357,7 +357,7 @@ const Coordinators = ({ width }) => {
                 <Scard
                     title="Aditya Mudgal"
                     description="GCS/2241032"
-                    image="https://images.all-free-download.com/images/graphicwebp/orange_crush_514795.webp"
+                    image="/assets/aditya.jpg"
                     color="#34d8a1"
                     width={width}
                 />
