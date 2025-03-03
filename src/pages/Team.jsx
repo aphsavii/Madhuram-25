@@ -210,7 +210,7 @@ const Faculty = ({ width }) => {
                 </div>
             </div>
 
-            <div className="flex flex-wrap gap-20 justify-evenly mt-20 mb-20" >
+            <div className="flex flex-wrap gap-8 sm:gap-8 justify-evenly mt-20 mb-20" >
                 <Card
                     title="Dr. Mani Kant Paswan"
                     description="Patron-in-Chief"
@@ -262,7 +262,7 @@ const Coordinators = ({ width }) => {
                 <img src='/assets/coord.svg' />
             </div>
 
-            <div className="scards flex flex-wrap gap-5 justify-between " >
+            <div className="scards flex flex-wrap  justify-around sm:justify-around gap-5" >
                 {scardData.map((scard, index) => (
                     <Scard
                         key={index}
