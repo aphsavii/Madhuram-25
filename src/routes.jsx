@@ -4,6 +4,7 @@ import Layout from "./Layout";
 // Pages imports
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Register from "./pages/Register";
 
 const Routes = createRoutesFromElements(
   <Route path="/" element={<Layout />}>
@@ -15,6 +16,12 @@ const Routes = createRoutesFromElements(
        <Home />
       }
     />
+    <Route
+      path="/register"
+      element={
+       <Register />
+      }
+    />
     
     {/* <Route
       path="about"
@@ -22,6 +29,7 @@ const Routes = createRoutesFromElements(
         <About />
       }
     /> */}
+    
 
     {/* Add other pages below */}
 
