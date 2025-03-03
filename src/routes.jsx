@@ -31,9 +31,6 @@ const Routes = createRoutesFromElements(
         <About />
       }
     /> 
-    
-    
-
     <Route
       path="team"
       element={
