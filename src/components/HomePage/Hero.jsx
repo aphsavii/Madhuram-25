@@ -3,8 +3,8 @@ import HeroImg from "/assets/madhuram.png"
 
 const Hero = () => {
   return (
-    <section className="text-center pt-8 pb-14">
-      <img src={HeroImg} alt='Madhuram' className='w-full h-auto'/>
+    <section className="text-center md:py-0 py-8 ">
+      <img src={HeroImg} alt='Madhuram' className='md:w-4/5 w-full h-auto mx-auto'/>
     </section>
   )
 }
