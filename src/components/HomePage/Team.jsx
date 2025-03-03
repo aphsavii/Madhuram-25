@@ -25,7 +25,7 @@ const Team = () => {
   ];
   return (
     <section className="py-8 text-center">
-      <div className="flex justify-center space-x-4 mt-4 gap-9">
+      <div className="flex justify-center space-x-4 mt-4 gap-9 flex-col md:flex-row">
         {members.map((member, index) => (
           <div key={index} className="relative">
             <img
