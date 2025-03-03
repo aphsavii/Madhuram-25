@@ -25,9 +25,9 @@ const Register = () => {
           src="/assets/UpperBanner.png"
           alt="Upper Banner"
         />
-        <img
+        <imgnpm ru
           className="h-10 sm:h-20 m-1"
-          src="/assets/registerImage.png"
+          src="/assets/registerImage.svg"
           alt="Register Image"
         />
       </div>
