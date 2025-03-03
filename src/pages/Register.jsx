@@ -235,7 +235,7 @@ const Register = () => {
             <div className="flex justify-center my-16">
               <button
                 onClick={clickSubmission}
-                className="transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-2/3 sm:w-1/2 text-center"
+                className="transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-1/2 sm:w-1/3 text-center"
               >
                 Submit
               </button>
