@@ -45,7 +45,7 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
                 STUDENT COORDINATOR
               </p>
               <a
-                href="tel:9472435923"
+                href="tel:6376287047"
                 className="text-xs font-normal font-poppins hover:underline"
               >63762 87047</a>
             </div>
@@ -64,7 +64,7 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
                 STUDENT COORDINATOR
               </p>
               <a
-                href="tel:9472435923"
+                href="tel:9155922000"
                 className="text-xs font-normal font-poppins hover:underline"
               >91559 22000</a>
             </div>
@@ -76,7 +76,7 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
                 STUDENT COORDINATOR
               </p>
               <a
-                href="tel:9472435923"
+                href="tel:7017954906"
                 className="text-xs font-normal font-poppins hover:underline"
               >70179 54906</a>
             </div>
