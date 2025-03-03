@@ -78,7 +78,11 @@ const Viewmob = ({ title, description, image, color }) => {
             <div style={{ width: 121, height: 127.48, left: 0, top: 0, position: 'absolute', borderRadius: 12, border: `3px ${color} solid` }} />
             <div style={{ width: 86.43, height: 16.21, left: 17.29, top: 87.51, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 10, fontFamily: 'Inter', fontWeight: '700', wordWrap: 'break-word' }}>{title}</div>
             <div style={{ width: 71.30, height: 12.96, left: 24.85, top: 105.88, position: 'absolute', textAlign: 'center', color: 'white', fontSize: 9, fontFamily: 'Inter', fontWeight: '400', wordWrap: 'break-word' }}>{description}</div>
-            <div style={{ width: 78.05, height: 78.05, left: 21.29, top: 2.37, position: 'absolute', background: '#E10000', borderRadius: 9999, border: '1px #616161 solid' }} />
+            <div style={{ width: 78.05, height: 78.05, left: 21.29, top: 2.37, position: 'absolute', background: '#E10000', borderRadius: 9999, border: '1px #616161 solid' }} >
+            <img src={image} alt="" style={{ borderRadius: 999}} />
+            </div>
+            
+
         </div>
     )
 }
@@ -198,7 +202,7 @@ const Teamlabel_mob = () => {
 const Faculty = ({ width }) => {
     let render = true;
     if (width < 600) render = false;
-    console.log(render);
+    
     return (
         <>
 
