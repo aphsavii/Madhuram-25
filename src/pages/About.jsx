@@ -55,8 +55,8 @@ function About() {
 
   return (
     <div className="w-full bg-[#FF0A5B] flex items-center justify-center flex-wrap">
-      <div className="mx-0">
         <img className="w-full h-[110px] sm:h-[161px]" src={group1} alt="group1" />
+      <div className="container mx-auto">
 
         <img className="w-[350px] h-[120px] mt-[80px] sm:ml-[89px]" src={pic1} alt="pic1" />
 

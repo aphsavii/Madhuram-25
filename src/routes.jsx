@@ -4,24 +4,39 @@ import Layout from "./Layout";
 // Pages imports
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Register from "./pages/Register";
+import HomePage from "./pages/HomePage";
 
+import Team from "./pages/Team";
 const Routes = createRoutesFromElements(
-  <Route path="/" element={<Layout />}>
+  <Route path="/" element={<  Layout />}>
 
     {/* Routes for different pages */}
     <Route
-      path=""
+      path="/"
       element={
-       <Home />
+       <HomePage />
+      }
+    />
+    <Route
+      path="/register"
+      element={
+       <Register />
       }
     />
     
-    { <Route
+     <Route
       path="about"
       element={
         <About />
       }
-    /> }
+    /> 
+    <Route
+      path="team"
+      element={
+       <Team />
+      }
+    />
 
     {/* Add other pages below */}
 
