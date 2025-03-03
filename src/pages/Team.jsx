@@ -211,28 +211,28 @@ const Faculty = ({ width }) => {
                 <Card
                     title="Dr. Mani Kant Paswan"
                     description="Patron-in-Chief"
-                    image="http://sliet.ac.in/wp-content/uploads/2024/07/MKPaswan.jpg"
+                    image="/assets/mkpaswan.png"
                 />
                 <Card
                     title="Prof. M. M. Sinha"
                     description="Patron"
-                    image="http://sliet.ac.in/wp-content/uploads/avatars/157/60d1dadd550ab-bpfull.jpg"
+                    image="/assets/mmsinha.png"
                 />
                 <Card
                     title="Prof. Indraj Singh"
                     description="Chairman, Madhuram’25"
-                    image="http://sliet.ac.in/wp-content/uploads/avatars/121/64ed8df8a324e-bpfull.jpg"
+                    image="/assets/indraj.png"
                 />
                 <Card
                     title="Dr.Gurjinder Kaur"
                     description="Vice-Chairman, Madhuram’25"
-                    image="http://sliet.ac.in/wp-content/uploads/avatars/14/5f2245e7a7f1bde5dee5bda48e09d411-bpfull.jpg"
+                    image="/assets/gurjinder.png"
                 />
 
                 <Card
                     title="Dr. Vivek Kumar"
                     description="Vice-Chairman, Madhuram’25"
-                    image="http://sliet.ac.in/wp-content/uploads/avatars/126/606ed6eaa2706-bpfull.jpg"
+                    image="/assets/vivek.png"
                 />
 
 
