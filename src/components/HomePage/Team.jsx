@@ -8,36 +8,36 @@ const Team = () => {
       name: "Professor Manikant Paswan",
       role: "Director",
       image: Director,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      description: "Our cultural fest is a celebration of creativity, talent, and unity. I encourage every student to participate, express themselves, and make unforgettable memories. Let's make this event a grand success!",
     },
     {
       name: "Professor M. M. Sinha",
       role: "Dean (Student Welfare)",
       image: Director,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      description: "Beyond academics, cultural activities shape our personalities and bring us together as a community. I urge you all to immerse yourselves in the joy of art, music, and expression. Enjoy every moment!",
     },
     {
       name: "Dr. Indraj Singh",
       role: "Chairman, Madhuram'25",
       image: Director,
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      description: "This event is a reflection of our vibrant student community. Your enthusiasm and dedication make it special. Let's create an atmosphere of joy, togetherness, and inspiration. Wishing you all a fantastic fest!",
     },
   ];
   return (
-    <section className="py-8 text-center">
-      <div className="flex justify-center space-x-4 mt-4 gap-9 flex-col md:flex-row">
+    <section className="md:py-6 py-0 text-center">
+      <div className="flex justify-center space-x-4 mt-4 md:gap-9 gap-3 flex-col md:flex-row">
         {members.map((member, index) => (
           <div key={index} className="relative">
             <img
               src={BgImage}
-              className="w-full h-full object-cover rounded-lg"
+              className="md:w-full md:h-full w-3/5 h-3/5 mx-auto object-cover rounded-lg"
             />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 mx-auto w-4/6">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 mx-auto md:w-4/6 w-3/5">
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-32 h-32 rounded-full border-2 border-white shadow-lg"
+                className="md:w-32 md:h-32 w-16 h-16 rounded-full border-2 border-white shadow-lg"
               />
               <h3 className="font-bold mt-2 text-[#1F3765] font-lobster">{member.name}</h3>
               <p className="font-bold text-sm text-[#1F3765] font-lobster">{member.role}</p>
