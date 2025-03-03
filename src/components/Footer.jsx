@@ -1,16 +1,99 @@
-import React from 'react'
+import React from "react";
 
-function Footer() {
+const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
   return (
-    <div className="w-full">
-    <div className="contianer mx-auto px-4 py-8 lg:py-16">
-        {/* Page content comes here */}
-        <h2 className="text-center text-blue-400 underline text-xl">
-            Footer
-        </h2>
-    </div>
-</div>
-  )
-}
+    <div className="w-full" style={{ backgroundColor: bgLightColor }}>
+      {/* Top Flower Border */}
+      <div
+        className="w-full h-6 mb-6"
+        style={{
+          backgroundImage: `url(${flowerImage})`,
+          backgroundRepeat: "repeat-x",
+          backgroundSize: "auto 100%",
+          backgroundPosition: "top",
+        }}
+      ></div>
 
-export default Footer
+      {/* Main Footer Content */}
+      <div
+        className="w-full md:py-6 py-0 flex flex-col items-center"
+        style={{ backgroundColor: bgColor }}
+      >
+        <div className="w-full flex justify-around text-white font-bold text-lg flex-col md:flex-row">
+          <div className="flex justify-center gap-8 md:gap-0 my-4 md:mt-0 w-full md:w-2/5 md:justify-around">
+            <div className="text-center">
+              <p className="md:text-2xl text-xl font-normal font-impact">
+                ARPAN KUSUM
+              </p>
+              <p className="text-xs font-normal font-poppins">
+                STUDENT COORDINATOR
+              </p>
+              <a
+                href="tel:9472435923"
+                className="text-xs font-normal font-poppins hover:underline"
+              >
+                94724 35923
+              </a>
+            </div>
+            <div className="text-center">
+              <p className="md:text-2xl text-xl  font-normal font-impact">
+                KISHLAY RAJ
+              </p>
+              <p className="text-xs font-normal font-poppins">
+                STUDENT COORDINATOR
+              </p>
+              <a
+                href="tel:9472435923"
+                className="text-xs font-normal font-poppins hover:underline"
+              >63762 87047</a>
+            </div>
+          </div>
+          <div className="text-center">
+            <button className="border-2 border-white text-white px-6 py-4 md:text-2xl text-xl rounded-full  font-normal font-impact">
+              CONTACT US
+            </button>
+          </div>
+          <div className="flex justify-center gap-8 md:gap-0 my-4 md:mt-0 w-full md:w-2/5 md:justify-around">
+            <div className="text-center">
+              <p className="md:text-2xl text-xl font-normal font-impact">
+                FARHAN ALI
+              </p>
+              <p className="text-xs font-normal font-poppins">
+                STUDENT COORDINATOR
+              </p>
+              <a
+                href="tel:9472435923"
+                className="text-xs font-normal font-poppins hover:underline"
+              >91559 22000</a>
+            </div>
+            <div className="text-center">
+              <p className="md:text-2xl text-xl font-normal font-impact">
+                ADITYA MUDGAL
+              </p>
+              <p className="text-xs font-normal font-poppins">
+                STUDENT COORDINATOR
+              </p>
+              <a
+                href="tel:9472435923"
+                className="text-xs font-normal font-poppins hover:underline"
+              >70179 54906</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Flower Border */}
+      <div
+        className="w-full h-6 mt-6"
+        style={{
+          backgroundImage: `url(${flowerImage})`,
+          backgroundRepeat: "repeat-x",
+          backgroundSize: "auto 100%",
+          backgroundPosition: "bottom",
+        }}
+      ></div>
+    </div>
+  );
+};
+
+export default Footer;

@@ -9,7 +9,12 @@ export default {
   ],  theme: {
 	extend: {
 		fontFamily: {
-			sans: ['"Inter"', 'sans-serif']
+			sans: ['Inter', 'sans-serif'],
+			impact: ['Impact', 'sans-serif'],
+			lobster: ['Lobster'],
+			poppins: ['Poppins', 'sans-serif'],
+			montserrat: ['Montserrat', 'sans-serif'],
+			climate: ['Climate Crisis', 'sans-serif']
 		},
 		borderRadius: {
 			lg: 'var(--radius)',
