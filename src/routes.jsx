@@ -4,6 +4,8 @@ import Layout from "./Layout";
 // Pages imports
 import Home from "./pages/Home";
 import About from "./pages/About";
+import HomePage from "./pages/HomePage";
+
 import Team from "./pages/Team";
 const Routes = createRoutesFromElements(
   <Route path="/" element={<  Layout />}>
@@ -12,11 +14,11 @@ const Routes = createRoutesFromElements(
     <Route
       path="/"
       element={
-       <Home />
+       <HomePage />
       }
     />
     
-    {/* <Route
+    { <Route
       path="about"
       element={
         <About />
