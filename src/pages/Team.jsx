@@ -198,7 +198,7 @@ const Teamlabel_mob = () => {
 const Faculty = ({ width }) => {
     let render = true;
     if (width < 600) render = false;
-    console.log(render);
+    
     return (
         <>
 
