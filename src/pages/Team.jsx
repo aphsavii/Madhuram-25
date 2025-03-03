@@ -219,12 +219,12 @@ const Faculty = ({ width }) => {
                 <Card
                     title="Prof. M. M. Sinha"
                     description="Patron"
-                    image="/assets/mmsinha.png"
+                    image="/assets/avatars/dean.jpg"
                 />
                 <Card
                     title="Prof. Indraj Singh"
                     description="Chairman, Madhuram’25"
-                    image="/assets/indraj.png"
+                    image="/assets/avatars/indraj.jpg"
                 />
                 <Card
                     title="Dr.Gurjinder Kaur"
