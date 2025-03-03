@@ -16,12 +16,12 @@ const Routes = createRoutesFromElements(
       }
     />
     
-    {/* <Route
+    { <Route
       path="about"
       element={
         <About />
       }
-    /> */}
+    /> }
 
     {/* Add other pages below */}
 
