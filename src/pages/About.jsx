@@ -63,7 +63,7 @@ function About() {
         {/* Carousel */}
         <div className="flex flex-row gap-2 w-full  py-10 justify-center lg:mb-20">
           <button onClick={prevSlide} aria-label="Previous Slide" className="flex items-center">
-            <img className="w-[50px] h-[50px]" src={leftarrow} alt="Previous" />
+            <img className="w-[43px] h-[38px] p-[5px] sm:w-[60px] sm:h-[52px] sm:p-[6px]" src={leftarrow} alt="Previous" />
           </button>
 
           <div className="w-full mx-auto flex items-center justify-center overflow-hidden relative">
@@ -80,7 +80,7 @@ function About() {
           </div>
 
           <button onClick={nextSlide} aria-label="Next Slide" className="flex items-center">
-            <img className="w-[50px] h-[50px]" src={rightarrow} alt="Next" />
+            <img className="w-[43px] h-[38px] p-[5px] sm:w-[60px] sm:h-[52px] sm:p-[6px]" src={rightarrow} alt="Next" />
           </button>
         </div>
 
