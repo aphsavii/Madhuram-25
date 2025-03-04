@@ -80,7 +80,7 @@ function About() {
           </div>
 
           <button onClick={nextSlide} aria-label="Next Slide" className="flex items-center">
-            <img className="w-[43px] h-[38px] p-[5px] lg:w-[60px] lg:h-[52px] lg:p-[6px]" src={rightarrow} alt="Next" />
+            <img className="w-[43px] h-[38px] p-[5px] lg:w-[60px] lg:h-[60px] lg:p-[6px]" src={rightarrow} alt="Next" />
           </button>
         </div>
 
