@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import header from '/assets/events/header.png';
 import events from '/assets/events/events.png';
 import duet from '/assets/events/dance/duet.png';
@@ -39,49 +39,114 @@ import beatboxing1 from '/assets/events/beatboxing/first.png';
 import beatboxing2 from '/assets/events/beatboxing/second.png';
 
 import Footer from '@/components/Footer';
+import Navbar from "@/components/Navbar";
+
+
 
 const Events = () => {
+    const eventsRef = useRef(null);
+    const isEventsInView = useInView(eventsRef, { once: true, margin: "-100px" });
+
     return (
-        <div className='bg-[#CB3541] text-white w-full flex flex-col overflow-hidden'>
-            <header className='flex flex-row w-full overflow-hidden'>
-                <img src={header} alt='header image' className='w-auto' />
-                <img src={header} alt='header image' className='w-auto' />
-                <img src={header} alt='header image' className='w-auto' />
-                <img src={header} alt='header image' className='w-auto' />
-            </header>
+        <div className="bg-[#CB3541] text-white w-full flex flex-col overflow-hidden">
+            {/* Header with Parallax Effect */}
+            <Navbar bgColor="#CB3541" />
+            <motion.header
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="flex flex-row w-full overflow-hidden"
+            >
+                <img src={header} alt="header image" className="w-auto" />
+                <img src={header} alt="header image" className="w-auto" />
+                <img src={header} alt="header image" className="w-auto" />
+                <img src={header} alt="header image" className="w-auto" />
+            </motion.header>
 
-            <div className='w-full flex flex-col items-center justify-center py-16'>
-                <img src={events} alt="events header" className='md:w-auto w-9/12' />
-            </div>
+            {/* Events Header Image with Scaling Effect */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="w-full flex flex-col items-center justify-center py-16"
+            >
+                <img src={events} alt="events header" className="md:w-auto w-9/12" />
+            </motion.div>
 
-            <div className='w-full flex flex-col h-auto items-center justify-center py-20'>
-                <div className='md:w-10/12 w-11/12 flex flex-row flex-wrap items-center justify-between'>
-
+            {/* Events List with Staggered Animation */}
+            <motion.div
+                ref={eventsRef}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isEventsInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                className="w-full flex flex-col h-auto items-center justify-center py-20"
+            >
+                <div className="md:w-10/12 w-11/12 flex flex-row flex-wrap items-center justify-between">
                     {eventData.map((event, index) => (
-                        <div key={index} className='flex flex-col md:w-1/2 h-auto md:px-16 px-4 relative md:mb-32 mb-24'>
-                            <img src={event.leftImage} alt={event.title} className='md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-left-0 -left-4 -rotate-12 z-10' />
-                            <div className='bg-[#267A62] w-full md:h-16 h-12 rounded-full border-2 border-[#89C990] flex items-center justify-center text-center text-white font-bold md:text-3xl text-lg montserrat--font'>
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={isEventsInView ? { opacity: 1, scale: 1 } : {}}
+                            transition={{ duration: 0.6, delay: index * 0.2 }}
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="flex flex-col md:w-1/2 h-auto md:px-16 px-4 relative md:mb-32 mb-24"
+                        >
+                            <motion.img
+                                initial={{ x: -30, opacity: 0 }}
+                                animate={isEventsInView ? { x: 0, opacity: 1 } : {}}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                src={event.leftImage}
+                                alt={event.title}
+                                className="md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-left-0 -left-4 -rotate-12 z-10"
+                            />
+                            <motion.div
+                                whileHover={{ scale: 1.1 }}
+                                transition={{ type: "spring", stiffness: 200 }}
+                                className="bg-[#267A62] w-full md:h-16 h-12 rounded-full border-2 border-[#89C990] flex items-center justify-center text-center text-white font-bold md:text-3xl text-lg montserrat--font"
+                            >
                                 {event.title}
-                            </div>
-                            <img src={event.rightImage} alt={event.title} className='md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-right-4 -right-6 z-10 rotate-12' />
-                            <div className='px-5 pt-2 noto--font md:text-left text-center'>{event.description}</div>
-                        </div>
+                            </motion.div>
+                            <motion.img
+                                initial={{ x: 30, opacity: 0 }}
+                                animate={isEventsInView ? { x: 0, opacity: 1 } : {}}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                src={event.rightImage}
+                                alt={event.title}
+                                className="md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-right-4 -right-6 z-10 rotate-12"
+                            />
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={isEventsInView ? { opacity: 1 } : {}}
+                                transition={{ duration: 0.6, delay: index * 0.4 }}
+                                className="px-5 pt-2 noto--font md:text-left text-center"
+                            >
+                                {event.description}
+                            </motion.div>
+                        </motion.div>
                     ))}
-
                 </div>
-            </div>
+            </motion.div>
 
-            <header className='flex flex-row w-full overflow-hidden'>
-                <img src={header} alt='header image' className='w-auto rotate-180' />
-                <img src={header} alt='header image' className='w-auto rotate-180' />
-                <img src={header} alt='header image' className='w-auto rotate-180' />
-                <img src={header} alt='header image' className='w-auto rotate-180' />
-            </header>
+            {/* Footer Header with Fade-in */}
+            <motion.header
+                initial={{ y: 50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                className="flex flex-row w-full overflow-hidden"
+            >
+                <img src={header} alt="header image" className="w-auto rotate-180" />
+                <img src={header} alt="header image" className="w-auto rotate-180" />
+                <img src={header} alt="header image" className="w-auto rotate-180" />
+                <img src={header} alt="header image" className="w-auto rotate-180" />
+            </motion.header>
 
-            <Footer bgColor="#CB3541" bgLightColor="#FFFFFF" flowerImage='/assets/flower-team.png' />
+            {/* Footer */}
+            <Footer bgColor="#CB3541" bgLightColor="#FFFFFF" flowerImage="/assets/flower-team.png" />
         </div>
-    )
-}
+    );
+};
+
 
 export default Events
 

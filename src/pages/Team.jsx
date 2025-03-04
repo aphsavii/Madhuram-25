@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Header from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useState, useEffect } from "react";
 
 const scardData = [
     {
@@ -298,32 +298,89 @@ const Pattern = ({ rotate }) => {
         )
 }
 
-function Team() {
+const Team = () => {
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         const handleResize = () => setWidth(window.innerWidth);
-
         window.addEventListener("resize", handleResize);
-
-        // Cleanup function to remove event listener when component unmounts
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // Refs for animation triggers
+    const facultyRef = useRef(null);
+    const coordinatorsRef = useRef(null);
+    const footerRef = useRef(null);
+
+    // Detect when sections come into view
+    const isFacultyInView = useInView(facultyRef, { once: true, margin: "-100px" });
+    const isCoordinatorsInView = useInView(coordinatorsRef, { once: true, margin: "-100px" });
+    const isFooterInView = useInView(footerRef, { once: true, margin: "-50px" });
+
     return (
-        <div className="w-full" style={{ backgroundColor: "#734297" }}>
-            <Header />
-            <Pattern rotate='false' />
+        <div className="w-full bg-[#734297]">
+            {/* Header with Smooth Fade-in */}
+            <motion.div
+                initial={{ opacity: 0, y: -30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+                <Header />
+            </motion.div>
+
+            {/* Background Pattern with Fade-in */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+            >
+                <Pattern rotate="false" />
+            </motion.div>
+
             <div className="container mx-auto px-4 py-8 lg:py-16">
+                {/* Faculty Section with Animation */}
+                <motion.div
+                    ref={facultyRef}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={isFacultyInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    whileHover={{ scale: 1.02, rotate: 1 }}
+                >
+                    <Faculty width={width} />
+                </motion.div>
 
-                <Faculty width={width} />
-                <Coordinators width={width} />
-
+                {/* Coordinators Section with Animation */}
+                <motion.div
+                    ref={coordinatorsRef}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={isCoordinatorsInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                    whileHover={{ scale: 1.02, rotate: -1 }}
+                >
+                    <Coordinators width={width} />
+                </motion.div>
             </div>
-            <Pattern rotate='true' />
-            <Footer bgColor="#754399" bgLightColor="#FFFFFF" flowerImage='/assets/flower-team.png' />
+
+            {/* Bottom Pattern with Smooth Fade-in */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+            >
+                <Pattern rotate="true" />
+            </motion.div>
+
+            {/* Footer with Slide-in Effect */}
+            <motion.div
+                ref={footerRef}
+                initial={{ opacity: 0, y: 50 }}
+                animate={isFooterInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+                <Footer bgColor="#754399" bgLightColor="#FFFFFF" flowerImage="/assets/flower-team.png" />
+            </motion.div>
         </div>
     );
-}
+};
 
 export default Team;
