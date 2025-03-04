@@ -61,7 +61,7 @@ function About() {
         </div>
 
         {/* Carousel */}
-        <div className="flex w-full  py-10 justify-center">
+        <div className="flex w-full  py-10 justify-center lg:mb-20">
           <button onClick={prevSlide} aria-label="Previous Slide" className="flex items-center">
             <img className="mx-2 w-[50px] h-[50px]" src={leftarrow} alt="Previous" />
           </button>
