@@ -45,7 +45,7 @@ const Team = () => {
           >
             <img
               src={BgImage}
-              className="md:w-full md:h-full w-[70%] h-3/5 mx-auto object-cover"
+              className="md:w-full md:h-full w-[77%] h-3/5 mx-auto object-cover"
             />
 
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 mx-auto md:w-4/6 w-3/5">
