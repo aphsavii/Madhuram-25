@@ -15,7 +15,7 @@ const Navbar = ({ bgColor }) => {
       </div>      
 
       {/* Navigation Links */}
-      <ul className="flex mx-auto lg:mx-0 lg:space-x-8 px-5  py-5 lg:py-8 lg:px-12 rounded-full border-[#FDC80E80] border-2 gap-12">
+      <ul className="flex mx-auto lg:mx-0 lg:space-x-8 px-5  py-5 lg:py-8 lg:px-12 rounded-full border-[#FDC80E80] border-2 md:gap-12 gap-8">
         {[
           { name: "Home", path: "/" }, // "/" maps to HomePage
           { name: "About Us", path: "/about" }, // "/about" maps to About
