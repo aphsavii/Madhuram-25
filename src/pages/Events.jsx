@@ -47,6 +47,7 @@ const Events = () => {
                 <img src={header} alt='header image' className='w-auto' />
                 <img src={header} alt='header image' className='w-auto' />
                 <img src={header} alt='header image' className='w-auto' />
+                <img src={header} alt='header image' className='w-auto' />
             </header>
 
             <div className='w-full flex flex-col items-center justify-center py-16'>
@@ -58,11 +59,11 @@ const Events = () => {
 
                     {eventData.map((event, index) => (
                         <div key={index} className='flex flex-col md:w-1/2 h-auto md:px-16 px-4 relative md:mb-32 mb-24'>
-                            <img src={event.leftImage} alt={event.title} className='md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-left-0 -left-8 -rotate-12 z-10' />
+                            <img src={event.leftImage} alt={event.title} className='md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-left-0 -left-4 -rotate-12 z-10' />
                             <div className='bg-[#267A62] w-full md:h-16 h-12 rounded-full border-2 border-[#89C990] flex items-center justify-center text-center text-white font-bold md:text-3xl text-lg montserrat--font'>
                                 {event.title}
                             </div>
-                            <img src={event.rightImage} alt={event.title} className='md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-right-4 -right-10 z-10 rotate-12' />
+                            <img src={event.rightImage} alt={event.title} className='md:w-44 w-28 flex absolute md:-top-24 -top-16 md:-right-4 -right-6 z-10 rotate-12' />
                             <div className='px-5 pt-2 noto--font md:text-left text-center'>{event.description}</div>
                         </div>
                     ))}
@@ -71,6 +72,7 @@ const Events = () => {
             </div>
 
             <header className='flex flex-row w-full overflow-hidden'>
+                <img src={header} alt='header image' className='w-auto rotate-180' />
                 <img src={header} alt='header image' className='w-auto rotate-180' />
                 <img src={header} alt='header image' className='w-auto rotate-180' />
                 <img src={header} alt='header image' className='w-auto rotate-180' />
