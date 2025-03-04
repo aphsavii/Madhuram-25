@@ -7,7 +7,7 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
       
       {flowerImage && (
         <div
-          className="w-full h-6 mb-6"
+          className="w-full h-6 md:mb-6 mb-4"
           style={{
             backgroundImage: `url(${flowerImage})`,
             backgroundPosition: "top",
@@ -76,9 +76,9 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
                 STUDENT COORDINATOR
               </p>
               <a
-                href="tel:7017954906"
+                href="tel:7017954096"
                 className="text-xs font-normal font-poppins hover:underline"
-              >70179 54906</a>
+              >70179 54096</a>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
       {/* Bottom Flower Border */}
       {flowerImage && (
         <div
-          className="w-full h-6 mt-6"
+          className="w-full h-6 md:mt-6 mt-2"
           style={{
             backgroundImage: `url(${flowerImage})`,
             backgroundPosition: "top",
