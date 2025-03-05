@@ -146,9 +146,8 @@ const Sponsors = () => {
         )}
 
         {/* Sponsor Description */}
-        <p className="md:mt-24 mt-12 text-white md:text-7xl text-3xl font-poppins">
-          Few lines for sponsors
-        </p>
+        <div className="md:mt-24 mt-12 px-5 lg:px-20 lg:leading-[55px]  text-white md:text-5xl text-2xl font-poppins">
+        We sincerely thank our Sponsors for their invaluable support in making Madhuram a grand success every year!        </div>
       </section>
 
       {/* Footer Section */}
@@ -170,17 +169,17 @@ const Sponsors = () => {
             </h2>
             <ul className="mt-4 text-white space-y-2 md:text-md text-sm">
               <li>
-                <a href="#" className="hover:underline">
+                <a href="" className="hover:underline">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="events" className="hover:underline">
                   Events
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:underline">
+                <a href="about" className="hover:underline">
                   Gallery
                 </a>
               </li>

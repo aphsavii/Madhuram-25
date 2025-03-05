@@ -59,7 +59,7 @@ const HomePage = () => {
         animate={isSponsorsInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        Our Sponsors
+        {/* Our Sponsors */}
       </motion.h2>
 
       <motion.div

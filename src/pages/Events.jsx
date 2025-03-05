@@ -55,7 +55,7 @@ const Events = () => {
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 1, ease: "easeOut" }}
-                className="flex flex-row w-full overflow-hidden"
+                className="flex flex-row w-full h-12 lg:h-auto overflow-hidden"
             >
                 <img src={header} alt="header image" className="w-auto" />
                 <img src={header} alt="header image" className="w-auto" />

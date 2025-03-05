@@ -1,8 +1,8 @@
 import React from "react";
 import BgImage from "/assets/image244.png";
-import Director from "/assets/director.png";
-import MMSinha from "/assets/mmsinha.png";
-import Indra from "/assets/indraj.png";
+import Director from "/assets/director-team.jpg";
+import MMSinha from "/assets/avatars/dean.jpg";
+import Indra from "/assets/avatars/indraj.jpg";
 import Gurjinder from "/assets/gurjinder.png";
 import Vivek from "/assets/avatars/vivek.jpeg";
 
@@ -47,7 +47,7 @@ const Team = () => {
   
   return (
     <section className="md:py-6 py-0 text-center">
-      <div className="flex flex-wrap justify-center mt-4 md:gap-9 gap-3">
+      <div className="flex flex-wrap justify-center lg:px-20 mt-4 md:gap-9 gap-3">
         {members.map((member, index) => (
           <div
             key={index}
