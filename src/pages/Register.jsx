@@ -50,7 +50,7 @@ const Register = () => {
             }}
           ></div>
           <img
-            className="h-10 sm:h-20 m-1"
+            className="h-10 sm:h-28 m-1"
             src="/assets/registerImage.svg"
             alt="Register Image"
           />
