@@ -19,7 +19,7 @@ const HomePage = () => {
   const isFooterInView = useInView(footerRef, { once: true, margin: "-100px" });
 
   return (
-    <div className="bg-[#1F3765] text-white min-h-screen">
+    <div className="bg-texture text-white min-h-screen">
       <Navbar bgColor="#1F3765" />
 
       {/* Hero Section with Floating Animation */}
