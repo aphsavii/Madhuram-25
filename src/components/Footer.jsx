@@ -7,7 +7,7 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
       
       {flowerImage && (
         <div
-          className="w-full h-6 md:mb-6 mb-4"
+          className="w-full h-8 mb-4"
           style={{
             backgroundImage: `url(${flowerImage})`,
             backgroundPosition: "top",
@@ -87,7 +87,7 @@ const Footer = ({ bgColor, bgLightColor, flowerImage }) => {
       {/* Bottom Flower Border */}
       {flowerImage && (
         <div
-          className="w-full h-6 md:mt-6 mt-2"
+          className="w-full h-8 mt-2"
           style={{
             backgroundImage: `url(${flowerImage})`,
             backgroundPosition: "top",

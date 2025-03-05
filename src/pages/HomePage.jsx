@@ -5,7 +5,7 @@ import Hero from "../components/HomePage/Hero";
 import Team from "../components/HomePage/Team";
 import Sponsors from "../components/HomePage/Sponsers";
 import Footer from "../components/Footer";
-import FlowerImage from "/assets/744.png";
+import FlowerImage from "/assets/745.png";
 
 const HomePage = () => {
   const heroRef = useRef(null);
