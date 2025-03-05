@@ -3,15 +3,43 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import rightFlower from "/assets/image91.png";
 import leftFlower from "/assets/image75.png";
 import Madhuram from "/assets/image 247.png";
+import Comestify from "/assets/Cosmetify.png";
+import Servocare from "/assets/servocare.png";
+import Internwell from "/assets/internwell.png";
+import Himalaya from "/assets/himalaya.png";
+import Lakme from "/assets/lakme.png";
+import RedBull from "/assets/redbull.png";
+import BeyondSnack from "/assets/beyondSnack.png";
+import CBI from "/assets/cbi.png";
+import Oppo from "/assets/oppo.png";
+import Coke from "/assets/coke.png";
+import SAA from "/assets/saa.png";
+import Dominos from "/assets/dominos.jpg";
+import HDFC from "/assets/Hdfc.png";
+import Bragfit from "/assets/bragfit.png";
+import IOL from "/assets/IOL.png";
+import BB from "/assets/image 87.png";
+import Garnier from "/assets/Garnier.png";
 
 const Sponsors = () => {
   const sponsors = [
-    { name: "Sponsor 1", logo: "sponsor1.jpg" },
-    { name: "Sponsor 2", logo: "sponsor2.jpg" },
-    { name: "Sponsor 3", logo: "sponsor3.jpg" },
-    { name: "Sponsor 4", logo: "sponsor4.jpg" },
-    { name: "Sponsor 5", logo: "sponsor5.jpg" },
-    { name: "Sponsor 6", logo: "sponsor6.jpg" },
+    { name: "Comestify", logo: Comestify},
+    { name: "Servocare", logo: Servocare},
+    { name: "Internwell", logo: Internwell },
+    { name: "Himalaya", logo: Himalaya },
+    { name: "Lakme", logo: Lakme },
+    { name: "RedBull", logo: RedBull },
+    { name: "BeyondSnack", logo: BeyondSnack},
+    { name: "CBI", logo: CBI},
+    { name: "Oppo", logo: Oppo },
+    { name: "Coke", logo: Coke },
+    { name: "SAA", logo: SAA },
+    { name: "Dominos", logo: Dominos },
+    { name: "HDFC", logo: HDFC},
+    { name: "Bragfit", logo: Bragfit},
+    { name: "IOL", logo: IOL },
+    { name: "BB", logo: BB },
+    { name: "Garnier", logo: Garnier },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -87,7 +115,7 @@ const Sponsors = () => {
                 <img
                   src={sponsor.logo}
                   alt={sponsor.name}
-                  className="w-full h-full object-cover rounded-full"
+                  className="object-cover rounded-full"
                 />
               </div>
             ))}

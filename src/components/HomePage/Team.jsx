@@ -3,6 +3,8 @@ import BgImage from "/assets/image244.png";
 import Director from "/assets/director.png";
 import MMSinha from "/assets/mmsinha.png";
 import Indra from "/assets/indraj.png";
+import Gurjinder from "/assets/gurjinder.png";
+import Vivek from "/assets/avatars/vivek.jpeg";
 
 const Team = () => {
   const members = [
@@ -27,10 +29,25 @@ const Team = () => {
       description:
         "This event is a reflection of our vibrant student community. Your enthusiasm and dedication make it special. Let's create an atmosphere of joy, togetherness, and inspiration. Wishing you all a fantastic fest!",
     },
+    {
+      name: "Dr. Gurjinder Kaur",
+      role: "Vice Chairman, Madhuram'25",
+      image: Gurjinder,
+      description:
+        "Madhuram'25 is a wonderful platform for students to showcase their talent, creativity, and passion. I encourage everyone to participate wholeheartedly, and make this fest a truly memorable celebration!",
+    },
+    {
+      name: "Dr. Vivek Kumar",
+      role: "Vice Chairman, Madhuram'25",
+      image: Vivek,
+      description:
+        "Our cultural fest reflects our vibrant student community, where talent meets enthusiasm. Let’s come together to celebrate creativity, forge new friendships, and create lasting memories.",
+    },
   ];
+  
   return (
     <section className="md:py-6 py-0 text-center">
-      <div className="flex justify-center space-x-4 mt-4 md:gap-9 gap-3 flex-col md:flex-row ">
+      <div className="flex flex-wrap justify-center mt-4 md:gap-9 gap-3">
         {members.map((member, index) => (
           <div
             key={index}
@@ -45,10 +62,10 @@ const Team = () => {
           >
             <img
               src={BgImage}
-              className="md:w-full md:h-full w-[77%] h-3/5 mx-auto object-cover"
+              className="md:w-full h-full w-[77%] mx-auto object-cover"
             />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 mx-auto md:w-4/6 w-3/5">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4  mx-auto md:w-4/6 w-3/5">
               <img
                 src={member.image}
                 alt={member.name}
