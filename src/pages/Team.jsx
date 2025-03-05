@@ -235,7 +235,7 @@ const Faculty = ({ width }) => {
                 <Card
                     title="Dr. Vivek Kumar"
                     description="Vice-Chairman, Madhuram’25"
-                    image="/assets/vivek.png"
+                    image="/assets/avatars/vivek.jpeg"
                 />
 
 
