@@ -110,7 +110,7 @@ const Card = ({ title, description, image }) => {
       <img
         src={image}
         alt={title}
-        className="w-full h-full object-cover rounded-t-2xl shadow-md transition-all duration-300 ease-in-out group-hover:brightness-110"
+        className="w-full h-full object-cover  rounded-t-2xl shadow-md transition-all duration-300 ease-in-out group-hover:brightness-110"
       />
     </div>
 
@@ -236,6 +236,11 @@ const Faculty = ({ width }) => {
                     title="Dr. Vivek Kumar"
                     description="Vice-Chairman, Madhuram’25"
                     image="/assets/avatars/vivek.jpeg"
+                />
+                  <Card
+                    title="Rohit Raj"
+                    description="Student Advisor, Madhuram’25"
+                    image="/assets/avatars/rohit.jpeg"
                 />
 
 
