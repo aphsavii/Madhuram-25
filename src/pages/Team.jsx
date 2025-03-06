@@ -205,7 +205,7 @@ const Faculty = ({ width }) => {
         <>
 
             <div className="flex justify-center   ">
-                <div className=" w-68 md:w-96 p-4 text-white">
+                <div className=" w-64 md:w-96 p-4 text-white">
                     <img src="/assets/faculty.svg" alt="" />
                 </div>
             </div>

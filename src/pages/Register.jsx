@@ -44,7 +44,7 @@ const Register = () => {
       <Navbar  />
         <div className="flex flex-col items-center">
           <img
-            className="w-68 md:w-96 m-1"
+            className="w-64 md:w-96 m-1"
             src="/assets/registerImage.svg"
             alt="Register Image"
           />

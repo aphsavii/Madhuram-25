@@ -70,7 +70,7 @@ const Events = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="w-full flex flex-col items-center justify-center py-16"
             >
-                <img src={events} alt="events header" className="w-68 md:w-96" />
+                <img src={events} alt="events header" className="w-64 md:w-96" />
             </motion.div>
 
             {/* Events List with Staggered Animation */}
