@@ -246,7 +246,7 @@ const Register = () => {
             <div className="mt-7 font-montserrat text-white font-semibold">
               Account details for payment
               <br />
-              Name: MADHURAM SLIET
+              Name: MADHURAM-2025
               <br />
               Account no: 5770121283
               <br />
