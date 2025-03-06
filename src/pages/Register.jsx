@@ -41,8 +41,14 @@ const Register = () => {
   return (
     <>
       <div className=" bg-texture-register relatie w-full">
-      <Navbar  />
-        <div className="flex flex-col items-center">
+        <Navbar />
+        <div className="flex flex-col items-center ">
+          <div
+            className="w-full h-16 lg:h-28 bg-repeat-x bg-[length:auto_100%] bg-top "
+            style={{
+              backgroundImage: "url('/assets/UpperBanner.png')",
+            }}
+          ></div>
           <img
             className="w-64 md:w-96 m-1"
             src="/assets/registerImage.svg"
@@ -50,7 +56,7 @@ const Register = () => {
           />
         </div>
 
-        <div className="flex justify-center mt-12 relative bg-transparent z-50">
+        <div className="flex justify-center  lg:mt-16 relative bg-transparent z-50">
           <form className=" w-[90%]" onSubmit={(e) => e.preventDefault()}>
             <div className="mt-7">
               <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
@@ -242,14 +248,13 @@ const Register = () => {
             backgroundImage: "url('/assets/UpperBanner.png')",
           }}
         ></div>
-      <Footer
-        bgColor="#135871"
-        bgLightColor="#FFFFFF"
-        flowerImage={FlowerImage}
-      />
+        <Footer
+          bgColor="#135871"
+          bgLightColor="#FFFFFF"
+          flowerImage={FlowerImage}
+        />
       </div>
     </>
-
   );
 };
 
