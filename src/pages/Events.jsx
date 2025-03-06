@@ -48,9 +48,9 @@ const Events = () => {
     const isEventsInView = useInView(eventsRef, { once: true, margin: "-100px" });
 
     return (
-        <div className="bg-[#CB3541] text-white w-full flex flex-col overflow-hidden">
+        <div className="bg-texture-events relative text-white w-full flex flex-col overflow-hidden">
             {/* Header with Parallax Effect */}
-            <Navbar bgColor="#CB3541" />
+            <Navbar  />
             <motion.header
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -70,7 +70,7 @@ const Events = () => {
                 transition={{ duration: 1, ease: "easeOut" }}
                 className="w-full flex flex-col items-center justify-center py-16"
             >
-                <img src={events} alt="events header" className="md:w-auto w-9/12" />
+                <img src={events} alt="events header" className="w-68 md:w-96" />
             </motion.div>
 
             {/* Events List with Staggered Animation */}
@@ -79,7 +79,7 @@ const Events = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isEventsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-                className="w-full flex flex-col h-auto items-center justify-center py-20"
+                className="w-full flex flex-col h-auto items-center justify-center py-20 bg-transparent z-50"
             >
                 <div className="md:w-10/12 w-11/12 flex flex-row flex-wrap items-center justify-between">
                     {eventData.map((event, index) => (

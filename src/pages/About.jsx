@@ -45,7 +45,7 @@ function About() {
   };
 
   return (
-    <div className="w-full bg-[#FF0A5B] flex items-center justify-center flex-wrap">
+    <div className="w-full relative z-10 bg-texture-about flex items-center justify-center flex-wrap">
       <motion.div className="w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
         <Navbar />
       </motion.div>
@@ -59,7 +59,7 @@ function About() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       />
 
-      <div className="container mx-auto">
+      <div className="container mx-auto relative bg-transparent z-50 ">
         <motion.img
           className="w-64 h-auto m-auto mt-[50px] md:w-96 lg:mt-[70px] lg:ml-[89px]"
           src={pic1}

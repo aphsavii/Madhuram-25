@@ -205,7 +205,7 @@ const Faculty = ({ width }) => {
         <>
 
             <div className="flex justify-center   ">
-                <div className=" p-4 text-white">
+                <div className=" w-68 md:w-96 p-4 text-white">
                     <img src="/assets/faculty.svg" alt="" />
                 </div>
             </div>
@@ -318,7 +318,7 @@ const Team = () => {
     const isFooterInView = useInView(footerRef, { once: true, margin: "-50px" });
 
     return (
-        <div className="w-full bg-[#734297]">
+        <div className="w-full  bg-texture-team">
             {/* Header with Smooth Fade-in */}
             <motion.div
                 initial={{ opacity: 0, y: -30 }}
@@ -337,7 +337,7 @@ const Team = () => {
                 <Pattern rotate="false" />
             </motion.div>
 
-            <div className="container mx-auto px-4 py-8 lg:py-16">
+            <div className="container mx-auto px-4 py-8 lg:py-16 bg-transparent z-50">
                 {/* Faculty Section with Animation */}
                 <motion.div
                     ref={facultyRef}

@@ -7,7 +7,7 @@ const Navbar = ({ bgColor }) => {
   return (
     <nav
       style={{ backgroundColor: bgColor }}
-      className="w-full py-4 px-1 lg:px-8 flex items-center justify-between"
+      className="w-full py-4 px-1 relative  z-50 lg:px-8 flex items-center justify-between"
     >
       {/* Left Logo */}
       <div className="hidden lg:block">

@@ -84,22 +84,106 @@
 .montserrat--font {
   font-family: "Montserrat", sans-serif;
 }
-.bg-texture {
+.bg-texture-home {
   background-color: #1F3765;
   position: relative;
 }
 
-.bg-texture::before {
+.bg-texture-about {
+  background-color: #FF0A5B;
+  position: relative;
+}
+
+.bg-texture-team {
+  background-color: #734297;
+  position: relative;
+}
+
+
+.bg-texture-events {
+  background-color: #CB3541;
+  position: relative;
+}
+
+.bg-texture-register{
+  background-color: #135871;
+  position: relative;
+}
+
+
+.bg-texture-home::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/public/assets/texture-1.png');
+  background-image: url('/assets/texture-1.png');
   background-repeat: repeat-y;
   background-position: center;
-  background-size: contain;
-  opacity: 0.02;
+  background-size: cover;
+  opacity: 0.03;
   z-index: 0;
 }
+
+.bg-texture-about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/texture-1.png');
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.bg-texture-team::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/texture-1.png');
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.04;
+  z-index: 0;
+}
+
+.bg-texture-events::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/texture-1.png');
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.08;
+  z-index: 0;
+}
+
+.bg-texture-register::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/texture-1.png');
+  background-repeat: repeat-y;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.04;
+  z-index: 0;
+}
+
+
