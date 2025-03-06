@@ -221,7 +221,7 @@ const Register = () => {
             </div>
             <div className="mt-7">
               <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
-                Where did you hear about the event?
+                Which event you wish to participate in
               </label>
               <div className="flex mt-2 font-montserrat  text-[#151313]">
                 <input
@@ -231,7 +231,28 @@ const Register = () => {
                 />
               </div>
             </div>
-
+            <div className="mt-7">
+              <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
+                Upload a payment screenshot of registration fee
+              </label>
+              <div className="flex mt-2 font-montserrat  text-[#151313]">
+                <input
+                  className="w-full sm:w-1/2  px-3 h-11 rounded-xl appearance-none"
+                  type="file"
+                  required
+                />
+              </div>
+            </div>
+            <div className="mt-7 font-montserrat text-white font-semibold">
+              Account details for payment
+              <br />
+              Name: MADHURAM SLIET
+              <br />
+              Account no: 5770121283
+              <br />
+              IFSC code: CBIN0283105
+              <br />
+            </div>
             <div className="flex justify-center my-16">
               <button
                 onClick={clickSubmission}

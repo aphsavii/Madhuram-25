@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import header from '/assets/events/header.png';
 import events from '/assets/events/events.png';
 import duet from '/assets/events/dance/duet.png';
-import solo from '/assets/events/dance/solo.png';
 
 import song1 from '/assets/events/singing/male.png';
 import song2 from '/assets/events/singing/female.png';
@@ -37,6 +36,9 @@ import choreography2 from '/assets/events/choreography/second.png';
 
 import beatboxing1 from '/assets/events/beatboxing/first.png';
 import beatboxing2 from '/assets/events/beatboxing/second.png';
+
+import Bhangra from '/assets/events/bhangra.png';
+import Bhangra1 from '/assets/events/bhangra-1.png';
 
 import Footer from '@/components/Footer';
 import Navbar from "@/components/Navbar";
@@ -79,7 +81,7 @@ const Events = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isEventsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-                className="w-full flex flex-col h-auto items-center justify-center py-20 bg-transparent z-50"
+                className="w-full flex flex-col h-auto items-center justify-between py-16 bg-transparent z-50   "
             >
                 <div className="md:w-10/12 w-11/12 flex flex-row flex-wrap items-center justify-between">
                     {eventData.map((event, index) => (
@@ -126,6 +128,17 @@ const Events = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <div>
+                    <motion.h1
+                        initial={{ opacity: 0 }}
+                        animate={isEventsInView ? { opacity: 1 } : {}}
+                        transition={{ duration: 0.6, delay: 0.6 }}
+                        className="text-white text-2xl lg:text-5xl font-montserrat font-bold text-center  mt-10"
+                    >
+                        Register Now! Win prizes upto <span className="text-[#fff]"> ₹1,50,000</span>
+                    </motion.h1>
+                </div>
             </motion.div>
 
             {/* Footer Header with Fade-in */}
@@ -152,10 +165,10 @@ export default Events
 
 const eventData = [
     {
-        title: 'Dance (Solo/Duet/Group)',
-        description: "Embrace the rich cultural tapestry through captivating folk dance to Rhythmic, expressive, and dynamic moves that'll leave all of you in awe.",
-        leftImage: duet,
-        rightImage: solo
+        title: 'Bhangra',
+        description: "Experience the electrifying energy of Bhangra at Madhuram’25, SLIET! Join us for an unforgettable celebration of Punjabi culture and dance!",
+        leftImage: Bhangra1 ,
+        rightImage: Bhangra
     },
     {
         title: 'Singing (Solo/Duet/Group)',
@@ -212,8 +225,8 @@ const eventData = [
         rightImage: modelling2
     },
     {
-        title: 'Choreography',
-        description: "An art of creating and arranging dance movements to form a cohesive performance.",
+        title: 'Dance (Solo/Duet/Group',
+        description: "Embrace the rich cultural tapestry through captivating folk dance to Rhythmic, expressive, and dynamic moves that'll leave all of you in awe.",
         leftImage: choreography1,
         rightImage: choreography2
     },

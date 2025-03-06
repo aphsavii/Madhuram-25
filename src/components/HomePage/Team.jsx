@@ -3,7 +3,7 @@ import BgImage from "/assets/image244.png";
 import Director from "/assets/director-team.jpg";
 import MMSinha from "/assets/avatars/dean.jpg";
 import Indra from "/assets/avatars/indraj.jpg";
-import Gurjinder from "/assets/gurjinder.png";
+import Gurjinder from "/assets/gurjinder.jpeg";
 import Vivek from "/assets/avatars/vivek.jpeg";
 
 const Team = () => {
@@ -27,7 +27,10 @@ const Team = () => {
       role: "Chairman, Madhuram'25",
       image: Indra,
       description:
-        "This event is a reflection of our vibrant student community. Your enthusiasm and dedication make it special. Let's create an atmosphere of joy, togetherness, and inspiration. Wishing you all a fantastic fest!",
+        `This event is a reflection of our vibrant student community. Your enthusiasm and dedication make it special. Let's create an atmosphere of joy, togetherness, and inspiration. Wishing you all a fantastic fest! <br>
+        <span class="font-medium font-poppins text-xs lg:mt-2">mail: indrarajsliet@yahoo.co.in <br>
+        contact: 9417460331</span>
+        `,
     },
     {
       name: "Dr. Gurjinder Kaur",
@@ -69,7 +72,7 @@ const Team = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="md:w-32 md:h-32 w-16 h-16 rounded-full border-2 border-white shadow-lg"
+                className="md:w-32 md:h-32 w-16 h-16 rounded-full border-2 object-cover border-white shadow-lg"
               />
               <h3 className="font-bold mt-2 text-[#1F3765] font-lobster">
                 {member.name}
@@ -77,8 +80,7 @@ const Team = () => {
               <p className="font-bold text-sm text-[#1F3765] font-lobster">
                 {member.role}
               </p>
-              <p className="mt-2 text-xs text-black font-poppins">
-                {member.description}
+              <p dangerouslySetInnerHTML={{__html:member.description}} className="mt-2 text-xs text-black  font-poppins">
               </p>
             </div>
           </div>
