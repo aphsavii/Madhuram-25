@@ -181,7 +181,7 @@
   background-image: url('/assets/texture-1.png');
   background-repeat: repeat-y;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   opacity: 0.04;
   z-index: 0;
 }

@@ -40,7 +40,7 @@ const Register = () => {
 
   return (
     <>
-      <div className=" bg-texture-register h-[100%] w-full">
+      <div className=" bg-texture-register relatie w-full">
       <Navbar  />
         <div className="flex flex-col items-center">
           <img
