@@ -35,7 +35,7 @@ const HomePage = () => {
 
       {/* Team Section with Heading and Animation */}
       <motion.h2
-        className="text-center text-3xl lg:text-4xl font-semibold mt-10"
+        className="text-center text-3xl lg:text-6xl font-semibold mt-10 lg:mt-24"
         initial={{ opacity: 0 }}
         animate={isTeamInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.2 }}
