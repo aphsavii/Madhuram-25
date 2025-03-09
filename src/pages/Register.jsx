@@ -81,7 +81,7 @@ const Register = () => {
     if (!validateEmail(emailId.current.value)) {
       alert("Please Enter a valid email adress");
     }
-    if (!viewLink) {
+    if (!slietStudent && !viewLink) {
       alert("Please Upload the Payment Screenshot first");
       return;
     }
