@@ -9,12 +9,23 @@ import design3 from "/assets/About/design3.png";
 import rightarrow from "/assets/About/rightarrow.png";
 import leftarrow from "/assets/About/leftarrow.png";
 import group2 from "/assets/About/group2.png";
-import gpic1 from "/assets/About/gpic1.jpg";
-import gpic2 from "/assets/About/gpic2.png";
-import gpic3 from "/assets/About/gpic3.jpg";
+import gpic1 from "/assets/About/gpic1.webp";
+import gpic2 from "/assets/About/gpic2.webp";
+import gpic3 from "/assets/About/gpic3.webp";
+import gpic4 from "/assets/About/gpic4.webp";
+import gpic5 from "/assets/About/gpic5.webp";
+import gpic6 from "/assets/About/gpic6.webp";
+import gpic7 from "/assets/About/gpic7.webp";
+import gpic8 from "/assets/About/gpic8.webp";
+import gpic9 from "/assets/About/gpic9.webp";
+import gpic10 from "/assets/About/gpic10.webp";
+import gpic11 from "/assets/About/gpic11.webp";
+import gpic12 from "/assets/About/gpic12.webp";
+import gpic13 from "/assets/About/gpic13.webp";
+import gpic14 from "/assets/About/gpic14.jpg";
 
 function About() {
-  const images = [gpic2, gpic1, gpic3, gpic1, gpic3, gpic2, gpic3, gpic1, gpic2];
+  const images = [gpic1, gpic2, gpic3, gpic4, gpic5, gpic6, gpic7, gpic8, gpic9, gpic10, gpic11, gpic12, gpic14, gpic13, gpic2];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [photosToShow, setPhotosToShow] = useState(1);
   const imageWidth = photosToShow === 3 ? 450 : 340;
