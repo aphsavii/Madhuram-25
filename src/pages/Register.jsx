@@ -249,7 +249,7 @@ const Register = () => {
                     </label>
                     <div className="flex mt-2 font-montserrat text-[#151313] w-full justify-center">
                       <input
-                        ref={regNo}
+                       
                         className="w-full px-3 h-11 rounded-xl"
                         type="text"
                         required
