@@ -6,9 +6,23 @@ import FlowerImage from "/assets/registerFooterFlower.svg";
 
 const Register = () => {
   const [slietStudent, setSlietStudent] = useState(true);
+  const [accomodation, setAccomodation] = useState("Yes");
   const [choosenOne, setChoosenOne] = useState(false);
+  const [imageName, setImageName] = useState("");
+  const [viewLink, setViewLink] = useState("");
+  const [imageLoadingText, setImageLoadingText] = useState("Upload screenshot");
+  const [payment, setPayment] = useState(null);
+
+  const fname = useRef(null);
+  const sname = useRef(null);
   const contactNo = useRef(null);
+  const [collegeName, setCollegeName] = useState(slietStudent ? "SLIET" : "");
   const regNo = useRef(null);
+  const yearOfGraduation = useRef(null);
+  const emailId = useRef(null);
+  const eventChoosen = useRef(null);
+  const team = useRef(null);
+  const paymentStatus = useRef(null);
 
   const Dept = {
     CSE: "Computer Science and Engineering",
@@ -41,16 +55,94 @@ const Register = () => {
     "Beatboxing",
   ];
 
-  const clickSubmission = () => {
+  const clickSubmission = async () => {
+
+    
+    const formData = {
+      Name: fname + sname,
+      Contact: contactNo.current.value,
+      College: collegeName,
+      email: emailId.current.value,
+      Year_of_Graduation: yearOfGraduation.current.value,
+      Team_Name: team.current.value,
+      event_: eventChoosen.current.value,
+      accomodation: accomodation,
+      payment: payment,
+    };
+    
     if (!validateContact(contactNo.current.value)) {
       alert("Please Enter a Valid 10 digit Contact Number");
       return;
     }
-    if (!validateRegNo(regNo.current.value)) {
+    if (slietStudent && !validateRegNo(regNo.current.value)) {
       alert("Please Enter a valid Registration Number");
       return;
     }
-    // submission logic
+    if (!validateEmail(emailId.current.value)) {
+      alert("Please Enter a valid email adress");
+    }
+    if (!viewLink) {
+      alert("Please Upload the Payment Screenshot first");
+      return;
+    }
+     
+    try {
+      const res = await fetch(
+        "https:script.google.com/macros/s/AKfycbz6xljv4vMPFKs0myFBjRlcerdd85OGf8CrfYrJKGCeiVdhuwN7cvgk3AoK_1A6ArpVKQ/exec",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+      // const jsondata = await res.json();
+      console.log("Done", res);
+      // console.log(jsondata);
+      // console.log(res.body);
+    } catch (err) {
+      console.log(err);
+     }
+   
+  };
+
+  const handleUploadImage = async () => {
+    const image = paymentStatus.current.files[0];
+
+    if (!image) {
+      alert("Please select an image before uploading.");
+      setImageName("");
+      return;
+    }
+    setImageName(image.name);
+    setImageLoadingText("Uploading...");
+
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "madhuram");
+    data.append("cloud_name", "dittkadrp");
+
+    try {
+      const res = await fetch(
+        "https://api.cloudinary.com/v1_1/dittkadrp/image/upload",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error(`Upload failed with status: ${res.status}`);
+      }
+
+      const result = await res.json();
+      setViewLink(result.url);
+      setPayment(result.url);
+      paymentStatus.current.files = null;
+    } catch (err) {
+      paymentStatus.current.files = null;
+      setImageName("");
+      alert("Some error occurred while uploading Payment screenshot.");
+    }
+    setImageLoadingText("Upload screenshot");
   };
 
   return (
@@ -63,7 +155,7 @@ const Register = () => {
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration:0.5}}
+              transition={{ duration: 0.5 }}
               className="w-full h-16 lg:h-28 bg-repeat-x bg-[length:auto_100%] bg-top "
               style={{
                 backgroundImage: "url('/assets/UpperBanner.png')",
@@ -114,9 +206,9 @@ const Register = () => {
             <div className="flex justify-center  lg:mt-16 relative bg-transparent z-50">
               <form className=" w-[90%]" onSubmit={(e) => e.preventDefault()}>
                 <motion.div
-                 initial={{ x: 100, opacity: 0 }} 
-                 animate={{ x: 0, opacity: 1 }} 
-                  transition={{ type: "spring", stiffness: 100, damping: 5 }}
+                  initial={{ x: 100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 100, damping: 8 }}
                   className="border-[3px] border-[#00E9FF] p-4 mt-7 rounded-lg sm:p-12 sm:rounded-xl sm:m-3  "
                 >
                   <div>
@@ -129,12 +221,14 @@ const Register = () => {
                         type="text"
                         placeholder="First Name"
                         required
+                        ref={fname}
                       />
                       <input
                         className="w-1/2 ml:3 sm:ml-4 px-3 h-11 rounded-xl"
                         type="text"
                         placeholder="Last Name"
                         required
+                        ref={sname}
                       />
                     </div>
                   </div>
@@ -161,8 +255,10 @@ const Register = () => {
                       <input
                         className="w-full sm:w-1/2  px-3 h-11 rounded-xl appearance-none"
                         type="text"
-                        value={slietStudent ? "SLIET" : ""}
-                        disabled={slietStudent}
+                        onChange={(e) =>
+                          !slietStudent && setCollegeName(e.target.value)
+                        }
+                        disabled={slietStudent == true}
                         required
                       />
                     </div>
@@ -192,6 +288,7 @@ const Register = () => {
                     <select
                       className="w-full px-3 h-11 rounded-xl bg-white text-black font-montserrat"
                       required
+                      ref={yearOfGraduation}
                     >
                       <option
                         value=""
@@ -218,6 +315,7 @@ const Register = () => {
                         className="w-full sm:w-1/2 px-3 h-11 rounded-xl appearance-none"
                         type="text"
                         required
+                        ref={emailId}
                       />
                     </div>
                   </div>
@@ -229,6 +327,7 @@ const Register = () => {
                     <select
                       className="block mt-5 w-full sm:w-1/2 px-3 h-11 rounded-xl bg-white text-black font-montserrat"
                       required
+                      ref={eventChoosen}
                     >
                       <option
                         value=""
@@ -249,16 +348,16 @@ const Register = () => {
                     </label>
                     <div className="flex mt-2 font-montserrat text-[#151313] w-full justify-center">
                       <input
-                       
                         className="w-full px-3 h-11 rounded-xl"
                         type="text"
                         required
+                        ref={team}
                       />
                     </div>
                   </div>
                   {!slietStudent && (
-                    <div class="mt-7">
-                      <p class="text-lg text-white font-montserrat font-semibold after:content-['*'] after:text-red-500">
+                    <div className="mt-7">
+                      <p className="text-lg text-white font-montserrat font-semibold after:content-['*'] after:text-red-500">
                         Accomodation Required?
                       </p>
 
@@ -281,6 +380,7 @@ const Register = () => {
                             value="no"
                             name="accomodation"
                             className="w-4 h-4 border-gray-300 focus:ring-green-500"
+                            onClick={() => setAccomodation("No")}
                           />
                           <span className="text-white font-montserrat font-semibold">
                             No
@@ -296,14 +396,30 @@ const Register = () => {
                         Upload Payment Screenshot of Registration Fee(@₹200) *
                       </label>
 
-                      <label className=" block mt-5 px-1 py-1 bg-[#289CC0] font-montserrat text-white rounded-lg w-3/4 sm:w-1/5 text-center cursor-pointer  shadow-lg transition active:scale-95 active:shadow-inner font-semibold">
-                        Upload Screenshot
+                      <label
+                        className={`block mt-5 px-1 py-1 bg-[#289CC0] font-montserrat text-white rounded-lg w-3/4 sm:w-1/5 text-center cursor-pointer  shadow-lg transition active:scale-95 active:shadow-inner font-semibold ${
+                          viewLink ? "pointer-events-none opacity-50" : ""
+                        }`}
+                      >
+                        {imageLoadingText}
                         <input
+                          ref={paymentStatus}
                           type="file"
                           className="hidden"
-                          onChange={(e) => console.log(e.target.files[0])}
+                          onChange={handleUploadImage}
                         />
                       </label>
+                      <div className="my-2">
+                        <span className="text-white font-semibold mx-2">
+                          {imageName}
+                        </span>
+                        <span
+                          className="text-white font-semibold mx-2 cursor-pointer "
+                          onClick={() => window.open(viewLink, "_blank")}
+                        >
+                          {viewLink ? "view" : ""}
+                        </span>
+                      </div>
                     </div>
                   )}
                 </motion.div>
@@ -358,4 +474,7 @@ const validateContact = (value) => {
 };
 const validateRegNo = (value) => {
   return /^\d{7}$/.test(value); // 7 digit regNo
+};
+const validateEmail = (value) => {
+  return /@/.test(value);
 };
