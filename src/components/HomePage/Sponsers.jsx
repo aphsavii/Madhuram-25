@@ -20,6 +20,7 @@ import Bragfit from "/assets/bragfit.png";
 import IOL from "/assets/IOL.png";
 import BB from "/assets/image 87.png";
 import Garnier from "/assets/Garnier.png";
+import { Link } from "react-router-dom";
 
 const Sponsors = () => {
   const sponsors = [
@@ -151,13 +152,13 @@ const Sponsors = () => {
       </section>
 
       {/* Footer Section */}
-      <section className="border-white md:border-[5px] border-[3px] bg-[#1F3765] flex flex-row justify-between md:px-10 px-2 md:py-12 py-6 md:mt-24 mt-12 md:mb-4 mb-2 items-start">
+      <section className="border-white md:border-[5px] border-[3px] bg-[#1F3765] flex flex-row justify-between md:px-10 px-2 md:py-12 py-6 md:mt-24 mt-12 md:mb-4 mb-2">
         {/* Left Image */}
         <div className="flex justify-center">
           <img
             src={Madhuram}
             alt="Madhuram"
-            className="h-60 w-60 md:h-72 md:w-72 object-contain"
+            className="h-auto w-60 md:h-auto md:w-96 object-contain"
           />
         </div>
 
@@ -169,45 +170,33 @@ const Sponsors = () => {
             </h2>
             <ul className="mt-4 text-white space-y-2 md:text-md text-sm">
               <li>
-                <a href="" className="hover:underline">
+                <Link to="/" className="hover:underline">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="events" className="hover:underline">
+                <Link to="/about" className="hover:underline">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/team" className="hover:underline">
+                  Team
+                </Link>
+              </li>
+              <li>
+                <Link to="/events" className="hover:underline">
                   Events
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="about" className="hover:underline">
-                  Gallery
-                </a>
+                <Link to="/register" className="hover:underline">
+                  Register
+                </Link>
               </li>
             </ul>
           </div>
 
-          <div>
-            <h2 className="text-xl md:text-4xl font-semibold text-white font-poppins">
-              Important Links
-            </h2>
-            <ul className="mt-4 text-white space-y-2 md:text-md text-sm">
-              <li>
-                <a href="#" className="hover:underline">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Contact Us
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
       </section>
     </>

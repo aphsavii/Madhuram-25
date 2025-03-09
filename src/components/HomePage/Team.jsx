@@ -26,8 +26,7 @@ const Team = () => {
       name: "Dr. Indraj Singh",
       role: "Chairman, Madhuram'25",
       image: Indra,
-      description:
-        `This event is a reflection of our vibrant student community. Your enthusiasm and dedication make it special. Let's create an atmosphere of joy, togetherness, and inspiration. Wishing you all a fantastic fest! <br>
+      description: `This event is a reflection of our vibrant student community. Your enthusiasm and dedication make it special. Let's create an atmosphere of joy, togetherness, and inspiration. Wishing you all a fantastic fest! <br>
         <span class="font-medium font-poppins text-xs lg:mt-2">mail: indrarajsliet@yahoo.co.in <br>
         contact: 9417460331</span>
         `,
@@ -47,20 +46,20 @@ const Team = () => {
         "Our cultural fest reflects our vibrant student community, where talent meets enthusiasm. Let’s come together to celebrate creativity, forge new friendships, and create lasting memories.",
     },
   ];
-  
+
   return (
     <section className="md:py-6 py-0 text-center">
       <div className="flex flex-wrap justify-center lg:px-20 mt-4 md:gap-9 gap-3">
         {members.map((member, index) => (
           <div
             key={index}
-            className="relative transition-transform duration-300 hover:scale-105"
+            className="relative transition-transform duration-1000ms hover:scale-105 animate-blink"
             style={{
               clipPath:
                 "polygon(50% 0%, 100% 0%, 112% 52%, 90% 90%, 40% 100%, 0% 90%, -16% 100%, 0% 0%)",
               WebkitClipPath:
                 "polygon(50% 0%, 100% 0%, 112% 52%, 90% 90%, 40% 100%, 0% 90%, -16% 100%, 0% 0%)",
-              filter: "drop-shadow(0px 8px 12px rgba(0,0,0,0.75))",
+              filter: "drop-shadow(0px 8px 12px rgba(255,255,255,0.9))",
             }}
           >
             <img
@@ -80,8 +79,10 @@ const Team = () => {
               <p className="font-bold text-sm text-[#1F3765] font-lobster">
                 {member.role}
               </p>
-              <p dangerouslySetInnerHTML={{__html:member.description}} className="mt-2 text-xs text-black  font-poppins">
-              </p>
+              <p
+                dangerouslySetInnerHTML={{ __html: member.description }}
+                className="mt-2 text-xs text-black  font-poppins"
+              ></p>
             </div>
           </div>
         ))}
