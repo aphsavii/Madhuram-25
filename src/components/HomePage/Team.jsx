@@ -53,13 +53,13 @@ const Team = () => {
         {members.map((member, index) => (
           <div
             key={index}
-            className="relative transition-transform duration-1000ms hover:scale-105 animate-blink"
+            className="relative transition-transform duration-300ms hover:scale-105"
             style={{
               clipPath:
                 "polygon(50% 0%, 100% 0%, 112% 52%, 90% 90%, 40% 100%, 0% 90%, -16% 100%, 0% 0%)",
               WebkitClipPath:
                 "polygon(50% 0%, 100% 0%, 112% 52%, 90% 90%, 40% 100%, 0% 90%, -16% 100%, 0% 0%)",
-              filter: "drop-shadow(0px 8px 12px rgba(255,255,255,0.9))",
+              filter: "drop-shadow(0px 8px 12px rgba(0,0,0,0.75))",
             }}
           >
             <img

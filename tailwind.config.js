@@ -63,16 +63,6 @@ export default {
 					'5': 'hsl(var(--chart-5))'
 				}
 			},
-			animation: {
-				blink: "blink 2.5s infinite alternate",
-			},
-			keyframes: {
-				blink: {
-					"0%": { filter: "drop-shadow(0px 8px 12px rgba(255, 255, 255, 0.9))" },
-					"50%": { filter: "drop-shadow(0px 8px 12px rgba(255, 255, 255, 0.3))" },
-					"100%": { filter: "drop-shadow(0px 8px 12px rgba(255, 255, 255, 0.9))" },
-				},
-			},
 
 		}
 	},
