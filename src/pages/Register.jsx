@@ -56,8 +56,6 @@ const Register = () => {
   ];
 
   const clickSubmission = async () => {
-
-    
     const formData = {
       Name: fname + sname,
       Contact: contactNo.current.value,
@@ -69,7 +67,7 @@ const Register = () => {
       accomodation: accomodation,
       payment: payment,
     };
-    
+
     if (!validateContact(contactNo.current.value)) {
       alert("Please Enter a Valid 10 digit Contact Number");
       return;
@@ -85,7 +83,7 @@ const Register = () => {
       alert("Please Upload the Payment Screenshot first");
       return;
     }
-     
+
     try {
       const res = await fetch(
         "https:script.google.com/macros/s/AKfycbz6xljv4vMPFKs0myFBjRlcerdd85OGf8CrfYrJKGCeiVdhuwN7cvgk3AoK_1A6ArpVKQ/exec",
@@ -100,8 +98,7 @@ const Register = () => {
       // console.log(res.body);
     } catch (err) {
       console.log(err);
-     }
-   
+    }
   };
 
   const handleUploadImage = async () => {
@@ -255,9 +252,10 @@ const Register = () => {
                       <input
                         className="w-full sm:w-1/2  px-3 h-11 rounded-xl appearance-none"
                         type="text"
-                        onChange={(e) =>
-                          !slietStudent && setCollegeName(e.target.value)
-                        }
+                        onChange={(e) => {
+                          if (!slietStudent) setCollegeName(e.target.value);
+                        }}
+                        value={collegeName}
                         disabled={slietStudent == true}
                         required
                       />
