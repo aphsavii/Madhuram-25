@@ -25,6 +25,9 @@ const HomePage = () => {
     height: typeof window !== 'undefined' ? window.innerHeight : 800
   });
   
+  // Check if device is mobile based on screen width
+  const isMobile = dimensions.width < 768; // Standard breakpoint for mobile
+  
   const generateButterflies = (count) => {
     return Array.from({ length: count }, (_, i) => ({
       id: i + 1,
@@ -38,35 +41,52 @@ const HomePage = () => {
     }));
   };
   
-  const [butterflies, setButterflies] = useState(() => generateButterflies(5)); // Increase count here
-  
+  // Set initial butterfly count based on screen size
+  const [butterflies, setButterflies] = useState(() => 
+    generateButterflies(isMobile ? 3 : 5)
+  );
   
   // Handle window resize
   useEffect(() => {
     const handleResize = () => {
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+      const newIsMobile = newWidth < 768;
+      
       setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight
+        width: newWidth,
+        height: newHeight
       });
+      
+      // Adjust butterfly count when switching between mobile and desktop
+      if (newIsMobile !== isMobile) {
+        setButterflies(generateButterflies(newIsMobile ? 3 : 5));
+      }
     };
     
     if (typeof window !== 'undefined') {
       window.addEventListener('resize', handleResize);
       return () => window.removeEventListener('resize', handleResize);
     }
-  }, []);
+  }, [dimensions.width, isMobile]);
   
+  // Dynamically add more butterflies - different behavior for mobile vs desktop
   useEffect(() => {
-    const addMoreButterflies = setTimeout(() => {
-      setButterflies((prev) => [
-        ...prev,
-        ...generateButterflies(2) // Add 2 more butterflies dynamically
-      ]);
-    }, 5000); // Add new butterflies every 5 seconds
-  
-    return () => clearTimeout(addMoreButterflies);
-  }, [butterflies]);
-  
+    // Only add more butterflies if under the max count for the device type
+    const maxButterflies = isMobile ? 4 : 10; // Cap at 4 for mobile, 10 for desktop
+    
+    if (butterflies.length < maxButterflies) {
+      const addMoreButterflies = setTimeout(() => {
+        setButterflies((prev) => {
+          // Calculate how many to add based on current count and max
+          const toAdd = Math.min(2, maxButterflies - prev.length);
+          return toAdd > 0 ? [...prev, ...generateButterflies(toAdd)] : prev;
+        });
+      }, 5000); // Add new butterflies every 5 seconds
+      
+      return () => clearTimeout(addMoreButterflies);
+    }
+  }, [butterflies, isMobile]);
   
   // Animate butterflies
   useEffect(() => {
