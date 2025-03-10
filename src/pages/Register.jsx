@@ -29,9 +29,7 @@ const Register = () => {
   const validateContact = (value) => {
     return /^\d{10}$/.test(value);
   };
-  const validateRegNo = (value) => {
-    return /^\d{7}$/.test(value);
-  };
+ 
   const validateEmail = (value) => {
     return /@/.test(value);
   };
