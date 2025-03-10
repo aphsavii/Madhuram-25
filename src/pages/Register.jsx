@@ -16,8 +16,8 @@ const Register = () => {
   const fname = useRef(null);
   const sname = useRef(null);
   const contactNo = useRef(null);
-  const [collegeName, setCollegeName] = useState(slietStudent ? "SLIET" : "");
-  const regNo = useRef(null);
+  const [collegeName, setCollegeName] = useState("SLIET");
+  
   const yearOfGraduation = useRef(null);
   const emailId = useRef(null);
   const eventChoosen = useRef(null);
@@ -57,13 +57,13 @@ const Register = () => {
 
   const clickSubmission = async () => {
     const formData = {
-      Name: fname + sname,
+      Name: fname.current.value + sname.current.value,
       Contact: contactNo.current.value,
       College: collegeName,
       email: emailId.current.value,
       Year_of_Graduation: yearOfGraduation.current.value,
       Team_Name: team.current.value,
-      event_: eventChoosen.current.value,
+      event: eventChoosen.current.value,
       accomodation: accomodation,
       payment: payment,
     };
@@ -72,10 +72,7 @@ const Register = () => {
       alert("Please Enter a Valid 10 digit Contact Number");
       return;
     }
-    if (slietStudent && !validateRegNo(regNo.current.value)) {
-      alert("Please Enter a valid Registration Number");
-      return;
-    }
+   
     if (!validateEmail(emailId.current.value)) {
       alert("Please Enter a valid email adress");
     }
@@ -262,21 +259,7 @@ const Register = () => {
                     </div>
                   </div>
 
-                  {slietStudent && (
-                    <div className="w-full sm:w-1/2 mt-7">
-                      <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
-                        Registration Number
-                      </label>
-                      <div className="flex mt-2 font-montserrat text-[#151313] w-full justify-center">
-                        <input
-                          ref={regNo}
-                          className="w-full px-3 h-11 rounded-xl"
-                          type="text"
-                          required
-                        />
-                      </div>
-                    </div>
-                  )}
+                  
 
                   <div className="w-full sm:w-1/2 mt-7">
                     <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
@@ -470,9 +453,7 @@ export default Register;
 const validateContact = (value) => {
   return /^\d{10}$/.test(value); // should be 10 digit phone number
 };
-const validateRegNo = (value) => {
-  return /^\d{7}$/.test(value); // 7 digit regNo
-};
+
 const validateEmail = (value) => {
   return /@/.test(value);
 };
