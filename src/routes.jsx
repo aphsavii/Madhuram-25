@@ -9,44 +9,19 @@ import HomePage from "./pages/HomePage";
 import Events from "./pages/Events";
 
 import Team from "./pages/Team";
+import Guidelines from "./pages/Guidelines";
 const Routes = createRoutesFromElements(
-  <Route path="/" element={<  Layout />}>
-
+  <Route path="/" element={<Layout />}>
     {/* Routes for different pages */}
-    <Route
-      path="/"
-      element={
-       <HomePage />
-      }
-    />
-    <Route
-      path="/register"
-      element={
-       <Register />
-      }
-    />
-    
-     <Route
-      path="about"
-      element={
-        <About />
-      }
-    /> 
-    <Route
-      path="team"
-      element={
-       <Team />
-      }
-    />
-    <Route
-      path="events"
-      element={
-       <Events />
-      }
-    />
+    <Route path="/" element={<HomePage />} />
+    <Route path="/register" element={<Register />} />
+    <Route path="/guidelines" element={<Guidelines />} />
+
+    <Route path="about" element={<About />} />
+    <Route path="team" element={<Team />} />
+    <Route path="events" element={<Events />} />
 
     {/* Add other pages below */}
-
   </Route>
 );
 
