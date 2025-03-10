@@ -69,7 +69,7 @@ const Register = () => {
 
   const clickSubmission = async () => {
     const formData = {
-      Name: fname.current.value + sname.current.value,
+      Name: fname.current.value + " "+ sname.current.value,
       Contact: contactNo.current.value,
       College: collegeName,
       email: emailId.current.value,
