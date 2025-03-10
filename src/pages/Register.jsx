@@ -69,6 +69,7 @@ const Register = () => {
     };
     console.log(formData);
     
+
     if (!validateContact(contactNo.current.value)) {
       alert("Please Enter a Valid 10 digit Contact Number");
       return;
@@ -81,9 +82,11 @@ const Register = () => {
       alert("Please Enter a valid email adress");
     }
     if (!slietStudent&&!viewLink) {
+    if (!slietStudent && !viewLink) {
       alert("Please Upload the Payment Screenshot first");
       return;
     }
+
     try {
       console.log(formData)
       const res = await fetch(
@@ -103,8 +106,7 @@ const Register = () => {
       // console.log(res.body);
     } catch (err) {
       console.log(err);
-     }
-   
+    }
   };
 
   const handleUploadImage = async () => {
@@ -258,9 +260,10 @@ const Register = () => {
                       <input
                         className="w-full sm:w-1/2  px-3 h-11 rounded-xl appearance-none"
                         type="text"
-                        onChange={(e) =>
-                          !slietStudent && setCollegeName(e.target.value)
-                        }
+                        onChange={(e) => {
+                          if (!slietStudent) setCollegeName(e.target.value);
+                        }}
+                        value={collegeName}
                         disabled={slietStudent == true}
                         required
                       />
