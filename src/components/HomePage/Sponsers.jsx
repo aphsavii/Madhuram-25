@@ -72,7 +72,7 @@ const Sponsors = () => {
 
   return (
     <>
-      <section className="md:py-8 py-0 mt-24 text-center relative">
+      <section className="md:py-8 py-0 mt-24 text-center ">
         <div className="relative flex items-center justify-center">
           <img
             src={leftFlower}
@@ -152,7 +152,7 @@ const Sponsors = () => {
       </section>
 
       {/* Footer Section */}
-      <section className="border-white md:border-[5px] border-[3px] bg-[#1F3765] flex flex-row justify-between md:px-10 px-2 md:py-12 py-6 md:mt-24 mt-12 md:mb-4 mb-2">
+      <section className="border-white md:border-[5px] border-[3px] bg-[#1F3765] flex flex-row justify-between md:px-10 px-2 md:py-12 py-6 md:mt-24 mt-12 md:mb-4 mb-2 relative z-10">
         {/* Left Image */}
         <div className="flex justify-center">
           <img
@@ -163,7 +163,7 @@ const Sponsors = () => {
         </div>
 
         {/* Links Section */}
-        <div className="flex flex-row justify-around w-full md:w-2/3 text-center md:text-left">
+        <div className="flex flex-row justify-around w-full md:w-2/3 text-center md:text-left ">
           <div className="mb-6 md:mb-0">
             <h2 className="text-xl md:text-4xl font-semibold text-white font-poppins">
               Quick Links
