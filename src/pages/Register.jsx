@@ -6,7 +6,7 @@ import FlowerImage from "/assets/registerFooterFlower.svg";
 
 const Register = () => {
   const [slietStudent, setSlietStudent] = useState(true);
-  const [accomodation, setAccomodation] = useState("Yes");
+  const [accomodation, setAccomodation] = useState("");
   const [choosenOne, setChoosenOne] = useState(false);
   const [imageName, setImageName] = useState("");
   const [viewLink, setViewLink] = useState("");
@@ -72,7 +72,7 @@ const Register = () => {
       College: collegeName,
       email: emailId.current.value,
       Year_of_Graduation: yearOfGraduation.current.value,
-      Team_Name: team.current.value,
+      Team_Name: team.current.value || "null",
       eventParticipation: eventChoosen.current.value,
       accomodation: accomodation,
       payment: payment,
@@ -375,8 +375,9 @@ const Register = () => {
                             type="radio"
                             name="accomodation"
                             value="yes"
-                            checked
+                            onClick={() => setAccomodation("No")}
                             className="w-4 h-4 border-gray-300 focus:ring-green-500"
+                          
                           />
                           <span className="text-white font-montserrat font-semibold">
                             Yes
@@ -389,6 +390,7 @@ const Register = () => {
                             name="accomodation"
                             className="w-4 h-4 border-gray-300 focus:ring-green-500"
                             onClick={() => setAccomodation("No")}
+                            
                           />
                           <span className="text-white font-montserrat font-semibold">
                             No
