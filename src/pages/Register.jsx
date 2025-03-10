@@ -359,7 +359,6 @@ const Register = () => {
                       <input
                         className="w-full px-3 h-11 rounded-xl"
                         type="text"
-                        required
                         ref={team}
                       />
                     </div>
