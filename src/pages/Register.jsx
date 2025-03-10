@@ -11,13 +11,15 @@ const Register = () => {
   const [imageName, setImageName] = useState("");
   const [viewLink, setViewLink] = useState("");
   const [imageLoadingText, setImageLoadingText] = useState("Upload screenshot");
-  const [payment, setPayment] = useState(null);
+  const [payment, setPayment] = useState("null");
+  const [submissionLoader, setSubmissionLoader] = useState(false);
+  const [submissionText, setSubmissionText] = useState("Submit");
 
   const fname = useRef(null);
   const sname = useRef(null);
   const contactNo = useRef(null);
   const [collegeName, setCollegeName] = useState("SLIET");
-  
+
   const yearOfGraduation = useRef(null);
   const emailId = useRef(null);
   const eventChoosen = useRef(null);
@@ -25,10 +27,10 @@ const Register = () => {
   const paymentStatus = useRef(null);
 
   const validateContact = (value) => {
-    return /^\d{10}$/.test(value); // should be 10 digit phone number
+    return /^\d{10}$/.test(value);
   };
   const validateRegNo = (value) => {
-    return /^\d{7}$/.test(value); // 7 digit regNo
+    return /^\d{7}$/.test(value);
   };
   const validateEmail = (value) => {
     return /@/.test(value);
@@ -73,17 +75,16 @@ const Register = () => {
       email: emailId.current.value,
       Year_of_Graduation: yearOfGraduation.current.value,
       Team_Name: team.current.value,
-      event: eventChoosen.current.value,
+      eventParticipation: eventChoosen.current.value,
       accomodation: accomodation,
       payment: payment,
     };
-    console.log(formData);
 
     if (!validateContact(contactNo.current.value)) {
       alert("Please Enter a Valid 10 digit Contact Number");
       return;
     }
-   
+
     if (!validateEmail(emailId.current.value)) {
       alert("Please Enter a valid email adress");
     }
@@ -91,9 +92,9 @@ const Register = () => {
       alert("Please Upload the Payment Screenshot first");
       return;
     }
+    setSubmissionLoader(true);
 
     try {
-      console.log(formData);
       const res = await fetch(
         "https://ancient-moon-7b80.aphsavii.workers.dev/",
         {
@@ -105,18 +106,30 @@ const Register = () => {
           body: JSON.stringify(formData),
         }
       );
-      // const jsondata = await res.json();
-      console.log("Done", res);
-      // console.log(jsondata);
-      // console.log(res.body);
+      setSubmissionText("Successfull Submission");
     } catch (err) {
-      console.log(err);
+      alert("There was an Error while Submission , Please Try Again");
+    } finally {
+      setSubmissionLoader(false);
+      fname.current.value = "";
+      sname.current.value = "";
+      contactNo.current.value = "";
+      if (!slietStudent) setCollegeName("");
+      emailId.current.value = "";
+      yearOfGraduation.current.value = "";
+      team.current.value = "";
+      eventChoosen.current.value = "";
+      setPayment("null");
+      setViewLink("");
+      paymentStatus.current.value = "";
+      setImageName("");
     }
   };
 
   const handleUploadImage = async () => {
     const image = paymentStatus.current.files[0];
-
+    
+  
     if (!image) {
       alert("Please select an image before uploading.");
       setImageName("");
@@ -124,12 +137,12 @@ const Register = () => {
     }
     setImageName(image.name);
     setImageLoadingText("Uploading...");
-
+  
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "madhuram");
     data.append("cloud_name", "dittkadrp");
-
+  
     try {
       const res = await fetch(
         "https://api.cloudinary.com/v1_1/dittkadrp/image/upload",
@@ -138,22 +151,25 @@ const Register = () => {
           body: data,
         }
       );
-
+  
       if (!res.ok) {
         throw new Error(`Upload failed with status: ${res.status}`);
       }
-
+  
       const result = await res.json();
       setViewLink(result.url);
       setPayment(result.url);
-      paymentStatus.current.files = null;
     } catch (err) {
-      paymentStatus.current.files = null;
       setImageName("");
-      alert("Some error occurred while uploading Payment screenshot.");
+      alert("Some Error occurred while uploading Payment screenshot.");
+    } finally {
+      
+      paymentStatus.current.value = "";  
+  
+      setImageLoadingText("Upload screenshot");
     }
-    setImageLoadingText("Upload screenshot");
   };
+  
 
   return (
     <>
@@ -274,8 +290,6 @@ const Register = () => {
                       />
                     </div>
                   </div>
-
-                  
 
                   <div className="w-full sm:w-1/2 mt-7">
                     <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
@@ -439,9 +453,13 @@ const Register = () => {
                 <div className="flex justify-center my-16">
                   <button
                     onClick={clickSubmission}
-                    className="transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-1/2 sm:w-1/3 text-center"
+                    className={`transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-1/2 sm:w-1/3 text-center ${
+                      submissionText === "Successfull Submission"
+                        ? "pointer-events-none opacity-50"
+                        : ""
+                    }`}
                   >
-                    Submit
+                    {submissionText}
                   </button>
                 </div>
               </form>
@@ -454,6 +472,52 @@ const Register = () => {
             }}
           ></div>
         </div>
+        {submissionLoader && (
+          <div className="fixed z-[100] inset-0 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center"
+            >
+              <div className="flex space-x-3">
+                <motion.div
+                  className="w-6 h-6 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full"
+                  animate={{ y: [-10, -20, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 0.6,
+                    ease: "easeInOut",
+                  }}
+                ></motion.div>
+                <motion.div
+                  className="w-6 h-6 bg-gradient-to-br from-green-400 to-yellow-500 rounded-full"
+                  animate={{ y: [-10, -30, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 0.6,
+                    ease: "easeInOut",
+                    delay: 0.2,
+                  }}
+                ></motion.div>
+                <motion.div
+                  className="w-6 h-6 bg-gradient-to-br from-red-400 to-pink-500 rounded-full"
+                  animate={{ y: [-10, -40, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 0.6,
+                    ease: "easeInOut",
+                    delay: 0.4,
+                  }}
+                ></motion.div>
+              </div>
+
+              <p className="mt-4 text-white text-lg font-semibold animate-pulse">
+                Submitting...
+              </p>
+            </motion.div>
+          </div>
+        )}
         <Footer
           bgColor="#135871"
           bgLightColor="#FFFFFF"
@@ -473,4 +537,3 @@ const validateEmail = (value) => {
 };
 
 export default Register;
-
