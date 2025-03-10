@@ -24,6 +24,16 @@ const Register = () => {
   const team = useRef(null);
   const paymentStatus = useRef(null);
 
+  const validateContact = (value) => {
+    return /^\d{10}$/.test(value); // should be 10 digit phone number
+  };
+  const validateRegNo = (value) => {
+    return /^\d{7}$/.test(value); // 7 digit regNo
+  };
+  const validateEmail = (value) => {
+    return /@/.test(value);
+  };
+
   const Dept = {
     CSE: "Computer Science and Engineering",
     ECE: "Electronics and Communication Engineering",
@@ -67,6 +77,7 @@ const Register = () => {
       accomodation: accomodation,
       payment: payment,
     };
+    console.log(formData);
 
     if (!validateContact(contactNo.current.value)) {
       alert("Please Enter a Valid 10 digit Contact Number");
@@ -82,11 +93,16 @@ const Register = () => {
     }
 
     try {
+      console.log(formData);
       const res = await fetch(
-        "https:script.google.com/macros/s/AKfycbz6xljv4vMPFKs0myFBjRlcerdd85OGf8CrfYrJKGCeiVdhuwN7cvgk3AoK_1A6ArpVKQ/exec",
+        "https://ancient-moon-7b80.aphsavii.workers.dev/",
         {
           method: "POST",
-          body: formData,
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         }
       );
       // const jsondata = await res.json();
@@ -448,8 +464,6 @@ const Register = () => {
   );
 };
 
-export default Register;
-
 const validateContact = (value) => {
   return /^\d{10}$/.test(value); // should be 10 digit phone number
 };
@@ -457,3 +471,6 @@ const validateContact = (value) => {
 const validateEmail = (value) => {
   return /@/.test(value);
 };
+
+export default Register;
+
