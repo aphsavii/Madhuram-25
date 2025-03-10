@@ -56,8 +56,6 @@ const Register = () => {
   ];
 
   const clickSubmission = async () => {
-
-    
     const formData = {
       Name: fname + sname,
       Contact: contactNo.current.value,
@@ -69,6 +67,7 @@ const Register = () => {
       accomodation: accomodation,
       payment: payment,
     };
+    console.log(formData);
     
     if (!validateContact(contactNo.current.value)) {
       alert("Please Enter a Valid 10 digit Contact Number");
@@ -81,18 +80,22 @@ const Register = () => {
     if (!validateEmail(emailId.current.value)) {
       alert("Please Enter a valid email adress");
     }
-    if (!viewLink) {
+    if (!slietStudent&&!viewLink) {
       alert("Please Upload the Payment Screenshot first");
       return;
     }
-     
     try {
+      console.log(formData)
       const res = await fetch(
-        "https:script.google.com/macros/s/AKfycbz6xljv4vMPFKs0myFBjRlcerdd85OGf8CrfYrJKGCeiVdhuwN7cvgk3AoK_1A6ArpVKQ/exec",
+        "https://ancient-moon-7b80.aphsavii.workers.dev/",
         {
           method: "POST",
-          body: formData,
-        }
+          mode: 'no-cors',
+          headers:{
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData),
+        },
       );
       // const jsondata = await res.json();
       console.log("Done", res);
