@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FlowerImage from "/assets/registerFooterFlower.svg";
+import { gfurl } from "@/lib/constatnts";
 
 const Register = () => {
-  const [slietStudent, setSlietStudent] = useState(true);
   const [accomodation, setAccomodation] = useState("");
   const [choosenOne, setChoosenOne] = useState(false);
   const [imageName, setImageName] = useState("");
@@ -18,7 +18,7 @@ const Register = () => {
   const fname = useRef(null);
   const sname = useRef(null);
   const contactNo = useRef(null);
-  const [collegeName, setCollegeName] = useState("SLIET");
+  const collegeName = useRef("");
 
   const yearOfGraduation = useRef(null);
   const emailId = useRef(null);
@@ -29,7 +29,7 @@ const Register = () => {
   const validateContact = (value) => {
     return /^\d{10}$/.test(value);
   };
- 
+
   const validateEmail = (value) => {
     return /@/.test(value);
   };
@@ -67,9 +67,9 @@ const Register = () => {
 
   const clickSubmission = async () => {
     const formData = {
-      Name: fname.current.value + " "+ sname.current.value,
+      Name: fname.current.value + " " + sname.current.value,
       Contact: contactNo.current.value,
-      College: collegeName,
+      College: collegeName.current.value,
       email: emailId.current.value,
       Year_of_Graduation: yearOfGraduation.current.value,
       Team_Name: team.current.value || "null",
@@ -86,7 +86,7 @@ const Register = () => {
     if (!validateEmail(emailId.current.value)) {
       alert("Please Enter a valid email adress");
     }
-    if (!slietStudent && !viewLink) {
+    if (!viewLink) {
       alert("Please Upload the Payment Screenshot first");
       return;
     }
@@ -112,7 +112,8 @@ const Register = () => {
       fname.current.value = "";
       sname.current.value = "";
       contactNo.current.value = "";
-      if (!slietStudent) setCollegeName("");
+
+      collegeName.current.value = "";
       emailId.current.value = "";
       yearOfGraduation.current.value = "";
       team.current.value = "";
@@ -126,8 +127,7 @@ const Register = () => {
 
   const handleUploadImage = async () => {
     const image = paymentStatus.current.files[0];
-    
-  
+
     if (!image) {
       alert("Please select an image before uploading.");
       setImageName("");
@@ -135,12 +135,12 @@ const Register = () => {
     }
     setImageName(image.name);
     setImageLoadingText("Uploading...");
-  
+
     const data = new FormData();
     data.append("file", image);
     data.append("upload_preset", "madhuram");
     data.append("cloud_name", "dittkadrp");
-  
+
     try {
       const res = await fetch(
         "https://api.cloudinary.com/v1_1/dittkadrp/image/upload",
@@ -149,11 +149,11 @@ const Register = () => {
           body: data,
         }
       );
-  
+
       if (!res.ok) {
         throw new Error(`Upload failed with status: ${res.status}`);
       }
-  
+
       const result = await res.json();
       setViewLink(result.url);
       setPayment(result.url);
@@ -161,13 +161,11 @@ const Register = () => {
       setImageName("");
       alert("Some Error occurred while uploading Payment screenshot.");
     } finally {
-      
-      paymentStatus.current.value = "";  
-  
+      paymentStatus.current.value = "";
+
       setImageLoadingText("Upload screenshot");
     }
   };
-  
 
   return (
     <>
@@ -207,8 +205,7 @@ const Register = () => {
             >
               <button
                 onClick={() => {
-                  setChoosenOne(true);
-                  setSlietStudent(true);
+                  window.open(gfurl, "_blank");
                 }}
                 className="  my-8 sm:my-12 transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-3/4 sm:w-1/2 text-center cursor-pointer"
               >
@@ -217,7 +214,6 @@ const Register = () => {
               <button
                 onClick={() => {
                   setChoosenOne(true);
-                  setSlietStudent(false);
                 }}
                 className="my-8 sm:my-12 transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-3/4  sm:w-1/2 text-center cursor-pointer"
               >
@@ -279,11 +275,7 @@ const Register = () => {
                       <input
                         className="w-full sm:w-1/2  px-3 h-11 rounded-xl appearance-none"
                         type="text"
-                        onChange={(e) => {
-                          if (!slietStudent) setCollegeName(e.target.value);
-                        }}
-                        value={collegeName}
-                        disabled={slietStudent == true}
+                        ref={collegeName}
                         required
                       />
                     </div>
@@ -363,91 +355,84 @@ const Register = () => {
                       />
                     </div>
                   </div>
-                  {!slietStudent && (
-                    <div className="mt-7">
-                      <p className="text-lg text-white font-montserrat font-semibold after:content-['*'] after:text-red-500">
-                        Accomodation Required?
-                      </p>
 
-                      <div className="w-2/3 sm:w-1/4 flex justify-between mt-3">
-                        <label className="flex items-center space-x-2 cursor-pointer">
-                          <input
-                            type="radio"
-                            name="accomodation"
-                            value="yes"
-                            onClick={() => setAccomodation("No")}
-                            className="w-4 h-4 border-gray-300 focus:ring-green-500"
-                          
-                          />
-                          <span className="text-white font-montserrat font-semibold">
-                            Yes
-                          </span>
-                        </label>
-                        <label className="flex items-center space-x-2 cursor-pointer">
-                          <input
-                            type="radio"
-                            value="no"
-                            name="accomodation"
-                            className="w-4 h-4 border-gray-300 focus:ring-green-500"
-                            onClick={() => setAccomodation("No")}
-                            
-                          />
-                          <span className="text-white font-montserrat font-semibold">
-                            No
-                          </span>
-                        </label>
-                      </div>
-                    </div>
-                  )}
+                  <div className="mt-7">
+                    <p className="text-lg text-white font-montserrat font-semibold after:content-['*'] after:text-red-500">
+                      Accomodation Required?
+                    </p>
 
-                  {!slietStudent && (
-                    <div className="mt-7">
-                      <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
-                        Upload Payment Screenshot of Registration Fee(@₹200) *
-                      </label>
-
-                      <label
-                        className={`block mt-5 px-1 py-1 bg-[#289CC0] font-montserrat text-white rounded-lg w-3/4 sm:w-1/5 text-center cursor-pointer  shadow-lg transition active:scale-95 active:shadow-inner font-semibold ${
-                          viewLink ? "pointer-events-none opacity-50" : ""
-                        }`}
-                      >
-                        {imageLoadingText}
+                    <div className="w-2/3 sm:w-1/4 flex justify-between mt-3">
+                      <label className="flex items-center space-x-2 cursor-pointer">
                         <input
-                          ref={paymentStatus}
-                          type="file"
-                          className="hidden"
-                          onChange={handleUploadImage}
+                          type="radio"
+                          name="accomodation"
+                          value="yes"
+                          onClick={() => setAccomodation("No")}
+                          className="w-4 h-4 border-gray-300 focus:ring-green-500"
                         />
+                        <span className="text-white font-montserrat font-semibold">
+                          Yes
+                        </span>
                       </label>
-                      <div className="my-2">
-                        <span className="text-white font-semibold mx-2">
-                          {imageName}
+                      <label className="flex items-center space-x-2 cursor-pointer">
+                        <input
+                          type="radio"
+                          value="no"
+                          name="accomodation"
+                          className="w-4 h-4 border-gray-300 focus:ring-green-500"
+                          onClick={() => setAccomodation("No")}
+                        />
+                        <span className="text-white font-montserrat font-semibold">
+                          No
                         </span>
-                        <span
-                          className="text-white font-semibold mx-2 cursor-pointer "
-                          onClick={() => window.open(viewLink, "_blank")}
-                        >
-                          {viewLink ? "view" : ""}
-                        </span>
-                      </div>
-                    </div>
-                  )}
-                </motion.div>
-
-                {!slietStudent && (
-                  <div className="mt-7 font-montserrat text-white font-semibold flex justify-center">
-                    <div>
-                      Account details for payment
-                      <br />
-                      Name: MADHURAM-2025
-                      <br />
-                      Account no: 5770121283
-                      <br />
-                      IFSC code: CBIN0283105
-                      <br />
+                      </label>
                     </div>
                   </div>
-                )}
+
+                  <div className="mt-7">
+                    <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
+                      Upload Payment Screenshot of Registration Fee(@₹200) *
+                    </label>
+
+                    <label
+                      className={`block mt-5 px-1 py-1 bg-[#289CC0] font-montserrat text-white rounded-lg w-3/4 sm:w-1/5 text-center cursor-pointer  shadow-lg transition active:scale-95 active:shadow-inner font-semibold ${
+                        viewLink ? "pointer-events-none opacity-50" : ""
+                      }`}
+                    >
+                      {imageLoadingText}
+                      <input
+                        ref={paymentStatus}
+                        type="file"
+                        className="hidden"
+                        onChange={handleUploadImage}
+                      />
+                    </label>
+                    <div className="my-2">
+                      <span className="text-white font-semibold mx-2">
+                        {imageName}
+                      </span>
+                      <span
+                        className="text-white font-semibold mx-2 cursor-pointer "
+                        onClick={() => window.open(viewLink, "_blank")}
+                      >
+                        {viewLink ? "view" : ""}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <div className="mt-7 font-montserrat text-white font-semibold flex justify-center">
+                  <div>
+                    Account details for payment
+                    <br />
+                    Name: MADHURAM-2025
+                    <br />
+                    Account no: 5770121283
+                    <br />
+                    IFSC code: CBIN0283105
+                    <br />
+                  </div>
+                </div>
 
                 <div className="flex justify-center my-16">
                   <button

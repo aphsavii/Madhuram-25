@@ -1,0 +1,1 @@
+export const gfurl = "https://docs.google.com/forms/d/e/1FAIpQLSeiIyZGgfKy1ipvN60GPzXWIhgUkpn33T0ju0MMMq5-tuxrMA/viewform";
