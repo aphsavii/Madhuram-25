@@ -42,6 +42,7 @@ import Bhangra1 from '/assets/events/bhangra-1.png';
 
 import Footer from '@/components/Footer';
 import Navbar from "@/components/Navbar";
+import { Link } from "react-router-dom";
 
 
 
@@ -128,6 +129,12 @@ const Events = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                <motion.div>
+                    <button className="bg-[#267A62] w-full md:h-16 h-12 rounded-full border-2 border-[#89C990] flex items-center justify-center text-center text-white font-bold md:text-3xl text-lg montserrat--font px-12">
+                        <Link to="/guidelines"> Event Guidelines</Link>
+                    </button>
+                </motion.div>
 
                 <div>
                     <motion.h1

@@ -190,6 +190,11 @@ const Sponsors = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/guidelines" className="hover:underline">
+                  Event Guidelines
+                </Link>
+              </li>
+              <li>
                 <Link to="/register" className="hover:underline">
                   Register
                 </Link>
