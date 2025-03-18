@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import FlowerImage from "/assets/registerFooterFlower.svg";
-import { gfurl } from "@/lib/constatnts";
+import { gfurl1, gfurl2 } from "@/lib/constatnts";
 
 const Register = () => {
   const [accomodation, setAccomodation] = useState("");
@@ -52,7 +52,8 @@ const Register = () => {
   };
   const events = [
     "Bhangra",
-    "Singing(solo/duet/group)",
+    "Solo Singing",
+    "Duet Singing",
     "Band Performance",
     "Drama / Skit",
     "Rapping",
@@ -63,6 +64,7 @@ const Register = () => {
     "Modelling",
     "Choreography",
     "Beatboxing",
+    "dance",
   ];
 
   const clickSubmission = async () => {
@@ -189,7 +191,7 @@ const Register = () => {
               transition={{ type: "spring", stiffness: 100, damping: 2 }}
             >
               <img
-                className="w-64 md:w-96 m-1"
+                className="w-48 md:w-96 m-1"
                 src="/assets/registerImage.svg"
                 alt="Register Image"
               />
@@ -205,11 +207,19 @@ const Register = () => {
             >
               <button
                 onClick={() => {
-                  window.open(gfurl, "_blank");
+                  window.open(gfurl1, "_blank");
                 }}
                 className="  my-8 sm:my-12 transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-3/4 sm:w-1/2 text-center cursor-pointer"
               >
                 For Sliet Students
+              </button>
+              <button
+                onClick={() => {
+                  window.open(gfurl2, "_blank");
+                }}
+                className="  my-8 sm:my-12 transition active:scale-95 active:shadow-inner shadow-lg px-6 py-3 bg-[#289CC0] font-semibold font-montserrat text-white text-lg rounded-lg w-3/4 sm:w-1/2 text-center cursor-pointer"
+              >
+                SLIET Bhangra Cup
               </button>
               <button
                 onClick={() => {
