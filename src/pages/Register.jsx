@@ -401,7 +401,7 @@ const Register = () => {
 
                   <div className="mt-7">
                     <label className="font-montserrat text-white font-semibold after:content-['*'] after:text-red-500">
-                      Upload Payment Screenshot of Registration Fee(@₹200) *
+                      Upload Payment Screenshot of Registration Fee(@₹100) *
                     </label>
 
                     <label
