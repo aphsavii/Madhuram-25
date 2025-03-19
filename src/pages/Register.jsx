@@ -64,7 +64,7 @@ const Register = () => {
     "Modelling",
     "Choreography",
     "Beatboxing",
-    "dance",
+    "dancing",
   ];
 
   const clickSubmission = async () => {
