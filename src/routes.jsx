@@ -10,6 +10,8 @@ import Events from "./pages/Events";
 
 import Team from "./pages/Team";
 import Guidelines from "./pages/Guidelines";
+import PrefestEvents from "./pages/Prefest-Events";
+
 const Routes = createRoutesFromElements(
   <Route path="/" element={<Layout />}>
     {/* Routes for different pages */}
@@ -20,6 +22,7 @@ const Routes = createRoutesFromElements(
     <Route path="about" element={<About />} />
     <Route path="team" element={<Team />} />
     <Route path="events" element={<Events />} />
+    <Route path="prefest-events" element={<PrefestEvents />} />
 
     {/* Add other pages below */}
   </Route>
