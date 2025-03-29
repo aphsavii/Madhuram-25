@@ -7,25 +7,25 @@ const scardData = [
     {
         title: "Aditya Mudgal",
         description: "GCS/2241032",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/aditya.jpg",
         color: "#34d8a1"
     },
     {
         title: "Arpan Kusum",
         description: "GCS/2231003",
-        image: "/assets/avatars/boy2.svg",
+        image: "/assets/avatars/arpanku.jpg",
         color: "#CF86E0"
     },
     {
         title: "Arpanveer Sidhu",
         description: "GCS/2241006",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/arpanv.jpg",
         color: "#FAB483"
     },
     {
         title: "Drishty Priya",
         description: "GFT/2335073",
-        image: "/assets/avatars/girl1.svg",
+        image: "/assets/avatars/drishty.jpg",
         color: "#5DC2EA"
     },
     {
@@ -37,43 +37,43 @@ const scardData = [
     {
         title: "Kishlay Raj",
         description: "GCS/2331004",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/kishlay.jpg",
         color: "#E53253"
     },
     {
         title: "Parveen",
         description: "GCT/2242013",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/praveen.jpg",
         color: "#458CB2"
     },
     {
         title: "Prakhyat Prakhar",
         description: "GIN/2244218",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/prakhyat.jpg",
         color: "#34D8A1"
     },
     {
         title: "Priyanshu Deep",
         description: "GME/2336072",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/priyanshu.png",
         color: "#CF86E0"
     },
     {
         title: "Subham Singh",
         description: "GME/2436110",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/subham.png",
         color: "#FAB483"
     },
     {
         title: "Sudhanshu Rajan",
         description: "GME/2336083",
-        image: "/assets/avatars/boy1.svg",
+        image: "/assets/avatars/sudhanshu.png",
         color: "#5DC2EA"
     },
     {
         title: "Urshita",
         description: "GCS/2331054",
-        image: "/assets/avatars/girl1.svg",
+        image: "/assets/avatars/urshita.jpg",
         color: "#EEBD3D"
     }
 ];
