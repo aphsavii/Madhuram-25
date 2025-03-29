@@ -12,9 +12,6 @@ import Team from "./pages/Team";
 import Guidelines from "./pages/Guidelines";
 import PrefestEvents from "./pages/Prefest-Events";
 
-import Dashboard from "./pages/live-voting/Dashboard";
-import Analytics from "./pages/live-voting/Analytics";
-import Login from "./pages/live-voting/Login";
 
 const Routes = createRoutesFromElements(
   <Route path="/" element={<Layout />}>
