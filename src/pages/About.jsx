@@ -125,7 +125,7 @@ function About() {
             className="flex items-center"
             whileHover={{ scale: 1.1 }}
           >
-            <img className="w-[43px] h-[38px] p-[5px] lg:w-[60px] lg:h-[52px] lg:p-[6px]" src={leftarrow} alt="Previous" />
+            <img className="w-[43px] h-[38px] p-[5px] lg:w-[60px] lg:h-[60px] lg:p-[6px]" src={leftarrow} alt="Previous" />
           </motion.button>
 
           <div className="w-full mx-auto flex flex-row items-center justify-start overflow-hidden relative lg:w-[1350px]">

@@ -9,6 +9,9 @@ import HomePage from "./pages/HomePage";
 import Events from "./pages/Events";
 
 import Team from "./pages/Team";
+import Guidelines from "./pages/Guidelines";
+import PrefestEvents from "./pages/Prefest-Events";
+
 import Dashboard from "./pages/live-voting/Dashboard";
 import Analytics from "./pages/live-voting/Analytics";
 import Login from "./pages/live-voting/Login";
@@ -18,16 +21,13 @@ const Routes = createRoutesFromElements(
     {/* Routes for different pages */}
     <Route path="/" element={<HomePage />} />
     <Route path="/register" element={<Register />} />
+    <Route path="/guidelines" element={<Guidelines />} />
 
     <Route path="about" element={<About />} />
     <Route path="team" element={<Team />} />
     <Route path="events" element={<Events />} />
-    <Route path="dashboard" element={<Dashboard />} />
-    <Route path="analytics" element={<Analytics />} />
+    <Route path="prefest-events" element={<PrefestEvents />} />
 
-    <Route path="/login" element={<Login />} />
-
-    <Route path="*" element={<Home />} />
     {/* Add other pages below */}
   </Route>
 );
