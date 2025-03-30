@@ -31,7 +31,7 @@ const scardData = [
     {
         title: "Farhan Ali",
         description: "GCT/2332051",
-        image: "/assets/avatars/boy7.svg",
+        image: "/assets/avatars/farhan.jpeg",
         color: "#E17272"
     },
     {
@@ -75,7 +75,14 @@ const scardData = [
         description: "GCS/2331054",
         image: "/assets/avatars/urshita.jpg",
         color: "#EEBD3D"
-    }
+    },
+    {
+        title: "Ashish Ojha",
+        description: "GCT/2332003",
+        image: "/assets/avatars/boy.jpg",
+        color: "#EEBD3D"
+    },
+
 ];
 
 
