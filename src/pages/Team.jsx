@@ -78,7 +78,7 @@ const scardData = [
     },
     {
         title: "Ashish Ojha",
-        description: "GCT/2332003",
+        description: "GIN/2244219",
         image: "/assets/avatars/boy.jpg",
         color: "#EEBD3D"
     },
