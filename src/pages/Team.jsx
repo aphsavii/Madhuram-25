@@ -79,7 +79,7 @@ const scardData = [
     {
         title: "Ashish Ojha",
         description: "GIN/2244219",
-        image: "/assets/avatars/ashish.jpg",
+        image: "/assets/avatars/ashish.jpeg",
         color: "#EEBD3D"
     },
 
